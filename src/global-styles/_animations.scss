@@ -1,0 +1,28 @@
+@import 'vars.scss';
+
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.animated-background {
+  animation-duration: 1.25s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: $color-focus;
+  background: linear-gradient(
+    to right,
+    $color-focus 8%,
+    $color-focus-2 18%,
+    $color-focus 33%
+  );
+  background-size: 800px 104px;
+  height: 96px;
+  position: relative;
+}
