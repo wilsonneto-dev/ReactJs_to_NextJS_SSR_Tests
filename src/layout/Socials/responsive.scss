@@ -1,0 +1,7 @@
+@import '../../global-styles/vars';
+
+@media (max-width: $breakpoint-tablet) {
+  .social-links {
+    display: none;
+  }
+}

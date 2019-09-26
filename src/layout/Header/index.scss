@@ -1,5 +1,4 @@
 @import '../../global-styles/vars';
-@import './responsive.scss';
 
 header.main-header {
   display: flex;
@@ -19,7 +18,7 @@ header.main-header {
   }
 
   .logo {
-    width: 339px;
+    width: 389px;
     padding-bottom: 10px;
     img {
       width: 100%;
@@ -59,3 +58,5 @@ header.main-header {
     }
   }
 }
+
+@import './responsive.scss';

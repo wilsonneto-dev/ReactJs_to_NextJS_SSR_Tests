@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
+import './index.scss';
+
 class Loading extends Component {
   render() {
     return (
       <>
-        <div class="loader"></div>
+        <div className="loader"></div>
       </>
     );
   }

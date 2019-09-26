@@ -1,0 +1,7 @@
+@import './vars';
+
+@media (max-width: $breakpoint-tablet) {
+  .mobile-margin-top {
+    padding-top: 70px;
+  }
+}

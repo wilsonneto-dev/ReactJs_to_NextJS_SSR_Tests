@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import Loading from '../components/Loading';
@@ -11,12 +11,14 @@ import Socials from '../layout/Socials'
 import Routes from '../routes';
 
 function App() {
+  let [state] = useState({ loading: false });
+  
   return (
     <div>
       <Router>
-
+        
         <Header />        
-        <div class="box-sized">
+        <div className="box-sized mobile-margin-top">
           <Socials />
 
           <Routes />
@@ -24,7 +26,7 @@ function App() {
         </div>
 
         <div>
-          <Loading />
+          { state.loading && <Loading /> }
         </div>
       </Router>
     </div>
