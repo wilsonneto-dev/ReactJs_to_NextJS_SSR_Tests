@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import { Link } from "react-router-dom";
 
+/* styles */
 import './index.scss';
-import './responsive.scss';
 
+/* images */
 import imageLogo from '../../images/logo.png'; 
 
 class Header extends Component {
@@ -12,22 +14,24 @@ class Header extends Component {
     return (
       <>
         <header class="main-header box-sized">
-          
-
           <div class="logo">
             <img src={ imageLogo } alt="Petra Belas Artes" />
           </div>
           <nav>
             <ul>
               <li class="active">
-                <a href="/">Início</a><span class="bullet"></span>
+                <Link to="/">Início</Link><span class="bullet"></span>
               </li>
-              <li><a href="/">Sobre</a><span class="bullet"></span></li>
-              <li><a href="/">Assinatura</a><span class="bullet"></span></li>
+
+              <li><Link to="/sobre">Sobre</Link><span class="bullet"></span></li>
+              
+              <li><Link to="/assinatura">Assinatura</Link><span class="bullet"></span></li>
+              
               <li>
-                <a href="/">Seu cardápio Semanal</a><span class="bullet"></span>
+                <Link to="/cardapio-semanal">Seu cardápio Semanal</Link><span class="bullet"></span>
               </li>
-              <li><a href="/">Sugestões</a><span class="bullet"></span></li>
+              
+              <li><Link to="/sugestoes">Sugestões</Link><span class="bullet"></span></li>
             </ul>
           </nav>
         </header>

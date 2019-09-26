@@ -1,0 +1,15 @@
+.social-links {
+  display: block;
+  float: right;
+  margin-top: 25px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+
+    li a img {
+      height: 22px;
+      margin-bottom: 8px;
+    }
+  }
+}
