@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+
+/* redux */
+import { Provider } from 'react-redux';
+import store from '../store';
 
 import Loading from '../components/Loading';
 
@@ -10,27 +14,30 @@ import Socials from '../layout/Socials'
 /* routers */
 import Routes from '../routes';
 
+
 function App() {
-  let [state] = useState({ loading: false });
-  
   return (
     <div>
-      <Router>
-        
-        <Header />        
-        <div className="box-sized mobile-margin-top">
-          <Socials />
+      <Provider store={store}>
+        <Router>
+          
+          <Header />        
+          <div className="box-sized mobile-margin-top">
+            <Socials />
 
-          <Routes />
+            <Routes />
 
-        </div>
+          </div>
 
-        <div>
-          { state.loading && <Loading /> }
-        </div>
-      </Router>
+          <div>
+            <Loading />
+          </div>
+        </Router>
+      </Provider>
     </div>
   );
 }
 
-export default App;
+
+
+export default (App);

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import favorites from './favorites';
+import GlobalLoading from './loading';
 
 export default combineReducers({
-  favorites
+  GlobalLoading
 });

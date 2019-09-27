@@ -8,10 +8,12 @@ import Suggestions from '../pages/Suggestions';
 class Routes extends Component {
   render(){
     return (
-      <Switch>
-        <Route exact path="/" component={ Home } />
-        <Route path="/sugestoes" component={ Suggestions } />
-      </Switch>
+      <div className="main-content">
+        <Switch>
+          <Route exact path="/" component={ Home } />
+          <Route path="/sugestoes" component={ Suggestions } />
+        </Switch>
+      </div>
     );
   }
 }

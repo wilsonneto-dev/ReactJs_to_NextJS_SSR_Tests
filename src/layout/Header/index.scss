@@ -41,6 +41,7 @@ header.main-header {
       a {
         font-family: $font-nav;
         font-weight: 600;
+        transition: all 0.5s;
       }
       &.active {
         color: $color-focus;

@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 
+/* redux */
+import { connect } from 'react-redux';
+// GlobalLoading
+
+/* style */
 import './index.scss';
 
 class Loading extends Component {
   render() {
+    const { loading } = this.props;
+    
     return (
       <>
-        <div className="loader"></div>
+        { loading && <div className="loader"></div> } 
       </>
     );
   }
 }
 
-export default Loading;
+const mapStateToProps = state => ({
+  loading: state.GlobalLoading.loading
+});
+
+export default connect(mapStateToProps)(Loading);
