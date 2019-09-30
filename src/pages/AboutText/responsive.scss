@@ -1,0 +1,48 @@
+@import '../../global-styles/vars';
+
+@media (max-width: $breakpoint-tablet) {
+  .wrapper-about {
+    header {
+      padding-top: 15px;
+    }
+
+    div.link {
+      margin: 30px 0;
+      float: right;
+      font-size: 19px;
+      transform: translateY(0);
+
+      & > a > div:first-child {
+        display: inline-block;
+        width: 126px;
+        text-align: right;
+        line-height: 20px;
+      }
+      & > a > div:last-child {
+        font-family: 'TT Hoves';
+        font-weight: bold;
+        display: inline-block;
+        width: 40px;
+        text-align: right;
+        font-size: 50px;
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .wrapper-about {
+    header {
+      h1 {
+        font-size: 50px;
+        line-height: 45px;
+        margin-bottom: 20px;
+
+        span {
+          font-family: 'TT Hoves';
+          display: block;
+        }
+      }
+    }
+  }
+}

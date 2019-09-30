@@ -5,6 +5,8 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../pages/Home';
 import Suggestions from '../pages/Suggestions';
 import Subscription from '../pages/Subscription';
+import AboutText from '../pages/AboutText';
+import AboutMovie from '../pages/AboutMovie';
 
 class Routes extends Component {
   render(){
@@ -14,6 +16,7 @@ class Routes extends Component {
           <Route exact path="/" component={ Home } />
           <Route path="/sugestoes" component={ Suggestions } />
           <Route path="/assinatura" component={ Subscription } />
+          <Route path="/sobre" component={ AboutMovie } />
         </Switch>
       </div>
     );

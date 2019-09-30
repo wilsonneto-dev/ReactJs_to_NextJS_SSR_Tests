@@ -1,0 +1,62 @@
+@import '../../global-styles/vars';
+
+.wrapper-about {
+  font-family: 'TT Hoves';
+
+  header {
+    font-family: 'TT Hoves';
+    color: $color-text;
+    padding-top: 95px;
+
+    h1 {
+      font-family: 'TT Hoves Bold';
+      color: $color-focus;
+      font-size: 80px;
+      line-height: 68px;
+      margin-bottom: 30px;
+
+      span {
+        font-family: 'TT Hoves';
+        display: block;
+      }
+    }
+  }
+
+  h3 {
+    font-family: 'TT Hoves Bold';
+    color: $color-focus;
+    font-size: 20px;
+    padding-top: 25px;
+  }
+  p {
+    font-family: 'TT Hoves';
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 850px;
+  }
+
+  div.link {
+    float: right;
+    font-size: 19px;
+    transform: translateY(-100%);
+
+    & > a > div:first-child {
+      display: inline-block;
+      width: 126px;
+      text-align: right;
+      line-height: 20px;
+    }
+    & > a > div:last-child {
+      font-family: 'TT Hoves';
+      font-weight: bold;
+      display: inline-block;
+      width: 40px;
+      text-align: right;
+      font-size: 50px;
+    }
+  }
+}
+
+@import './responsive.scss';
