@@ -50,7 +50,7 @@ class Header extends Component {
               </li>
               
               <li className={ clsx( pathname === '/cardapio-semanal' && 'active' ) }>
-                <Link to="/cardapio-semanal">Seu cardápio Semanal</Link><span className="bullet"></span>
+                <Link to="/cardapio-semanal">Seu Cardápio Semanal</Link><span className="bullet"></span>
               </li>
               
               <li className={ clsx( pathname === '/sugestoes' && 'active' ) }>

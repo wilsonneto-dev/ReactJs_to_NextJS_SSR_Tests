@@ -1,7 +1,8 @@
 .social-links {
   display: block;
-  float: right;
   margin-top: 25px;
+  position: absolute;
+  right: 0;
 
   ul {
     display: flex;

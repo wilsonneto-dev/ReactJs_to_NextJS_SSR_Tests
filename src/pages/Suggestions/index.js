@@ -27,6 +27,7 @@ class Suggestions extends Component {
 
   componentDidMount()
   {
+    document.title = 'Sugestões - Petra Belas Artes';
     this.getData();
   }
 

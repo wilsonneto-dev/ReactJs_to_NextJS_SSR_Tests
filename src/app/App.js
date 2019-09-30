@@ -22,15 +22,14 @@ function App() {
         <Router>
           
           <Header />        
-          <div className="box-sized mobile-margin-top">
+          <div className="box-sized mobile-margin-top relative">
             <Socials />
 
             <Routes />
-
           </div>
 
           <div>
-            <Loading />
+            <Loading  />
           </div>
         </Router>
       </Provider>
