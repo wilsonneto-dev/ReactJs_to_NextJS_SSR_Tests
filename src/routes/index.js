@@ -7,6 +7,7 @@ import Suggestions from '../pages/Suggestions';
 import Subscription from '../pages/Subscription';
 import AboutText from '../pages/AboutText';
 import AboutMovie from '../pages/AboutMovie';
+import Channel from '../pages/Channel';
 
 class Routes extends Component {
   render(){
@@ -17,6 +18,8 @@ class Routes extends Component {
           <Route path="/sugestoes" component={ Suggestions } />
           <Route path="/assinatura" component={ Subscription } />
           <Route path="/sobre" component={ AboutMovie } />
+          <Route path="/sobre-texto" component={ AboutText } />
+          <Route path="/cardapio-semanal" component={ Channel } />
         </Switch>
       </div>
     );

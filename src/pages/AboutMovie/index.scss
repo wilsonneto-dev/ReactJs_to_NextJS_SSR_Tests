@@ -1,1 +1,59 @@
 @import '../../global-styles/vars';
+
+.about-movie-wrapper {
+  font-family: 'TT Hoves';
+  color: $color-text;
+
+  .side {
+    display: inline-block;
+    width: 35%;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-top: 105px;
+
+    &:last-child {
+      width: 65%;
+    }
+
+    header {
+      h1 {
+        font-family: 'TT Hoves Bold';
+        color: $color-focus;
+        font-size: 60px;
+        margin-bottom: 21px;
+        text-transform: uppercase;
+        line-height: 60px;
+        margin: 0;
+        padding-bottom: 15px;
+      }
+    }
+
+    .text-blocks {
+      p {
+        padding: 0;
+        margin: 0;
+        font-size: 19px;
+        line-height: 23px;
+        width: 95%;
+        max-width: 370px;
+        padding-bottom: 20px;
+      }
+    }
+
+    .video-wrapper {
+      width: 100%;
+
+      video {
+        width: 95%;
+      }
+    }
+  }
+
+  &.arrow-wrapper {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+  }
+}
+
+@import './responsive';

@@ -1,12 +1,31 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+import Shared from '../../configs/Shared';
 
 import './index.scss';
 
+import iconArrowUp from '../../images/arrow-up.png';
+
 class AboutText extends Component {
+  componentDidMount() {
+    document.title = `À La Carte - ${ Shared.defaultTitle }`;
+  }
+
+  componentWillUnmount() 
+  {
+    document.title = `${ Shared.defaultTitle }`;
+  }
+
   render() {
     return (
       <>
-        <div class="wrapper-about inner">
+        <div className="wrapper-about inner arrow-wrapper">
+          <Link to="/sobre">
+            <img src={ iconArrowUp } alt="Página Anterior"/>
+          </Link>
+        </div>
+        <div className="wrapper-about inner">
           <header>
             <h1>
               <span>Sobre o</span>

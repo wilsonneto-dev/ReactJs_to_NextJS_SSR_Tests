@@ -3,10 +3,14 @@
 .wrapper-about {
   font-family: 'TT Hoves';
 
+  &.arrow-wrapper {
+    padding: 40px 0;
+    text-align: center;
+  }
+
   header {
     font-family: 'TT Hoves';
     color: $color-text;
-    padding-top: 95px;
 
     h1 {
       font-family: 'TT Hoves Bold';

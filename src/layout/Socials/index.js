@@ -5,8 +5,8 @@ import './index.scss';
 
 /* icons */
 import iconFacebook from '../../images/ic-fb.png';
-import iconInstagram from '../../images/ic-yt.png';
-import iconYoutube from '../../images/ic-ig.png';
+import iconInstagram from '../../images/ic-ig.png';
+import iconYoutube from '../../images/ic-yt.png';
 
 /* social links */
 const socialLinks = {

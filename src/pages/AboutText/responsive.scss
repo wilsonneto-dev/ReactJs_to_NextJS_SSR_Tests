@@ -2,6 +2,11 @@
 
 @media (max-width: $breakpoint-tablet) {
   .wrapper-about {
+    &.arrow-wrapper {
+      padding: 25px 0;
+      text-align: center;
+    }
+
     header {
       padding-top: 15px;
     }

@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 
+import Shared from '../../configs/Shared';
+
 import './index.scss';
 
 class Subscription extends Component {
   componentDidMount() {
-    document.title = 'Assinatura - Petra Belas Artes';
+    document.title = `Assinatura - ${ Shared.defaultTitle }`;
+  }
+
+  componentWillUnmount() {
+    document.title = `${ Shared.defaultTitle }`;
   }
 
   render() {

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import api, { servicesAPIs } from '../../services/api';
 import LoadingSuggestions from "./components/LoadingSuggestions";
-
 import { SkeletonTheme } from 'react-loading-skeleton';
 
+import Shared from '../../configs/Shared';
 
 import './index.scss';
 
@@ -27,8 +27,12 @@ class Suggestions extends Component {
 
   componentDidMount()
   {
-    document.title = 'Sugestões - Petra Belas Artes';
+    document.title = `Sugestões - ${ Shared.defaultTitle }`;
     this.getData();
+  }
+
+  componentWillUnmount() {
+    document.title = `${ Shared.defaultTitle }`;
   }
 
   async getData(){
