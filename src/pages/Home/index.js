@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 
+/** Components */
+import Billboard from '../../components/Billboard';
+import MoviesList from '../../components/MoviesList';
+
 import './index.scss';
 
 class Home extends Component {
   render(){
     return(
       <>
-        Home...
+        <Billboard />
+
+        <MoviesList />
       </>
     );
   }

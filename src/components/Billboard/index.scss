@@ -1,0 +1,42 @@
+@import '../../global-styles/vars';
+@import './button';
+
+.billboard {
+  display: block;
+  font-family: 'TT Hoves';
+
+  div {
+    padding-top: 90px;
+
+    hgroup {
+      h3 {
+        font-size: 15px;
+        margin-left: 9px;
+        font-weight: 500;
+        span {
+          margin-right: 6px;
+          letter-spacing: 1px;
+        }
+      }
+
+      h1 {
+        font-family: 'Luthier bold';
+        color: $color-focus;
+        font-size: 80px;
+        margin-top: 23px;
+        margin-bottom: 16px;
+        letter-spacing: -0.5px;
+        max-width: 500px;
+      }
+
+      .bold {
+        font-weight: bolder;
+      }
+    }
+
+    .play {
+      margin-left: -3px;
+      margin-bottom: 64px;
+    }
+  }
+}
