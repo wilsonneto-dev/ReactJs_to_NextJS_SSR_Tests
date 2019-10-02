@@ -1,0 +1,44 @@
+@import '../../global-styles/vars';
+
+.channel-list-wrapper {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+
+    li {
+      width: 30%;
+      margin-bottom: 30px;
+      text-align: center;
+      font-family: 'TT Hoves';
+      color: $color-text;
+      font-size: 18px;
+      width: 350px;
+
+      .text {
+        padding-top: 10px;
+        h3 {
+          padding: 0;
+          margin: 0;
+        }
+      }
+
+      img {
+        transition: all 0.5s;
+      }
+      &:hover {
+        img {
+          transform: scale(1.01);
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+
+  &.arrow {
+    padding: 40px 0;
+    text-align: center;
+  }
+}

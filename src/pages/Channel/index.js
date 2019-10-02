@@ -75,7 +75,6 @@ class Channel extends Component {
                   }
                 </div>
               </div>
-
             
               <div className="video-wrapper">
                 <div className="embed-container animated-background">
