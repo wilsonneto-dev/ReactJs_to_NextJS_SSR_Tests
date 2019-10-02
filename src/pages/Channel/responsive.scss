@@ -1,0 +1,40 @@
+@import '../../global-styles/vars';
+
+@media (max-width: $breakpoint-tablet) {
+  .channel-wrapper {
+    .side {
+      display: block;
+      box-sizing: border-box;
+
+      &:first-child {
+        width: 100%;
+      }
+
+      &:last-child {
+        width: 100%;
+        text-align: center;
+
+        .video-wrapper {
+          display: inline-block;
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .channel-wrapper {
+    .side {
+      &:last-child {
+        width: 100%;
+        text-align: center;
+
+        .video-wrapper {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

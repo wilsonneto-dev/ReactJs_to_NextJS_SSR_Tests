@@ -1,6 +1,9 @@
 @import '../../global-styles/vars';
+@import '../../global-styles/animations';
 
 .channel-wrapper {
+  padding-top: 30px;
+
   .side {
     display: inline-block;
     box-sizing: border-box;
@@ -19,7 +22,7 @@
       padding-bottom: 56.25%;
       height: 0;
       overflow: hidden;
-      max-width: 98%;
+      max-width: 99%;
       margin: 10px auto;
 
       iframe,
@@ -34,3 +37,10 @@
     }
   }
 }
+
+.arrow-wrapper {
+  text-align: center;
+  padding: 50px 0;
+}
+
+@import './responsive';

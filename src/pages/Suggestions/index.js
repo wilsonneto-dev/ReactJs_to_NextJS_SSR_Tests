@@ -19,10 +19,6 @@ class Suggestions extends Component {
     this.state = {
       suggestions : []
     };
-
-    this.getData = this.getData.bind(this);
-    this.componentDidMount = this.componentDidMount.bind(this);
-    this.getData = this.getData.bind(this);
   }
 
   componentDidMount()
