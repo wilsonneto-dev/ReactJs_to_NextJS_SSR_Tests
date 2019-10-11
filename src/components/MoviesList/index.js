@@ -59,6 +59,14 @@ class MoviesList extends Component {
     const { Id: id, Name: name, Url: url } = this.props.section;
     const { loading, movies } = this.state;
 
+    const sliderSettings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+
     return (
       <>
         <section className="movies-list inner">
@@ -70,6 +78,21 @@ class MoviesList extends Component {
             color="#ff7748"
             highlightColor="#f45728"
           >
+            <Slider {...sliderSettings}>
+              <div>
+                <h3>1</h3>
+              </div>
+              <div>
+                <h3>2</h3>
+              </div>
+              <div>
+                <h3>3</h3>
+              </div>
+              <div>
+                <h3>4</h3>
+              </div>
+            </Slider>
+
             <div className="movies-slider">
               {!loading
                 ? movies.map((item, index) => (
