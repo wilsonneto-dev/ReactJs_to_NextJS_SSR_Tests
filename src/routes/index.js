@@ -6,27 +6,53 @@ import Home from '../pages/Home';
 import Suggestions from '../pages/Suggestions';
 import Subscription from '../pages/Subscription';
 import AboutText from '../pages/AboutText';
-import AboutMovie from '../pages/AboutMovie';
+import AboutVideo from '../pages/AboutVideo';
 import Channel from '../pages/Channel';
 import ChannelList from '../pages/ChannelList';
+import MovieDetails from '../pages/MovieDetails';
 
-class Routes extends Component {
-  render(){
+class SwitchRoutes extends Component {
+  previousLocation = this.props.location;
+
+  componentWillUpdate(nextProps) {
+    let { location } = this.props;
+
+    // set previousLocation if props.location is not modal
+    if (
+      nextProps.history.action !== 'POP' &&
+      (!location.state || !location.state.modal)
+    ) {
+      this.previousLocation = this.props.location;
+    }
+  }
+
+  render() {
+    let { location } = this.props;
+
+    let isModal = !!(
+      location.state &&
+      location.state.modal &&
+      this.previousLocation !== location
+    ); // not initial render
+
     return (
       <div className="main-content">
-        <Switch>
-          <Route exact path="/" component={ Home } />
-          <Route exact path="/home" component={ Home } />
-          <Route path="/sugestoes" component={ Suggestions } />
-          <Route path="/assinatura" component={ Subscription } />
-          <Route path="/sobre" component={ AboutMovie } />
-          <Route path="/sobre-texto" component={ AboutText } />
-          <Route path="/cardapio-semanal" component={ Channel } />
-          <Route path="/cardapio-lista" component={ ChannelList } />
+        <Switch location={isModal ? this.previousLocation : location}>
+          <Route exact path="/" component={Home} />
+          <Route path="/detalhes" component={Home} />
+          <Route exact path="/home" component={Home} />
+
+          <Route path="/sugestoes" component={Suggestions} />
+          <Route path="/assinatura" component={Subscription} />
+          <Route path="/sobre" component={AboutVideo} />
+          <Route path="/sobre-texto" component={AboutText} />
+          <Route path="/cardapio-semanal" component={Channel} />
+          <Route path="/cardapio-lista" component={ChannelList} />
         </Switch>
+        <Route path="/detalhes/:id/:slug" component={MovieDetails} />
       </div>
     );
   }
 }
 
-export default Routes;
+export default SwitchRoutes;

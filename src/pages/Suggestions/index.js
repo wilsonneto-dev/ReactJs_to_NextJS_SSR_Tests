@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import api, { servicesAPIs } from '../../services/api';
-import LoadingSuggestions from "./components/LoadingSuggestions";
+import LoadingSuggestions from './components/LoadingSuggestions';
 import { SkeletonTheme } from 'react-loading-skeleton';
 
 import Shared from '../../configs/Shared';
@@ -13,34 +13,34 @@ import { bindActionCreators } from 'redux';
 import { Creators as LoadingActions } from '../../store/ducks/loading';
 
 class Suggestions extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    
+
     this.state = {
-      suggestions : []
+      suggestions: []
     };
   }
 
-  componentDidMount()
-  {
-    document.title = `Sugestões - ${ Shared.defaultTitle }`;
+  componentDidMount() {
+    document.title = `Sugestões - ${Shared.defaultTitle}`;
     this.getData();
   }
 
   componentWillUnmount() {
-    document.title = `${ Shared.defaultTitle }`;
+    document.title = `${Shared.defaultTitle}`;
   }
 
-  async getData(){
+  async getData() {
     this.props.updateGlobalLoading(true);
-    
-    api.get( servicesAPIs.suggestions )
-    .then( response => {
-      this.setState({ suggestions : response.data });
-      this.props.updateGlobalLoading(false);
-    })
-    .catch(error => {})
-    .finally( () => {});
+
+    api
+      .get(servicesAPIs.suggestions)
+      .then(response => {
+        this.setState({ suggestions: response.data });
+        this.props.updateGlobalLoading(false);
+      })
+      .catch(error => {})
+      .finally(() => {});
   }
 
   render() {
@@ -49,27 +49,33 @@ class Suggestions extends Component {
     return (
       <div className="inner">
         <section className="header">
-          <h1>Sugestões { this.props.loading && '...' }</h1>
+          <h1>Sugestões {this.props.loading && '...'}</h1>
           <p>
-            Nossa equipe escolheu a dedo filmes incríveis do nosso catálogo para você assistir!
+            Nossa equipe escolheu a dedo filmes incríveis do nosso catálogo para
+            você assistir!
           </p>
         </section>
-        
-        <SkeletonTheme className="skeleton" color="#ff7748" highlightColor="#f45728">
+
+        <SkeletonTheme
+          className="skeleton"
+          color="#ff7748"
+          highlightColor="#f45728"
+        >
           <section className="suggestions">
-            { 
-              suggestions.length === 0 ? <LoadingSuggestions /> :
+            {suggestions.length === 0 ? (
+              <LoadingSuggestions />
+            ) : (
               suggestions.map(item => (
-                <div className="item" key={ item.id }>
+                <div className="item" key={item.id}>
                   <div className="avatar-wrapper">
-                    <img src={ item.imageUrl } alt={ item.name } />
+                    <img src={item.imageUrl} alt={item.name} />
                   </div>
-                  <h3>{ item.name }</h3>
-                  <h4>{ item.movieTitle }</h4>
-                  <p>{ item.description }</p>
+                  <h3>{item.name}</h3>
+                  <h4>{item.movieTitle}</h4>
+                  <p>{item.description}</p>
                 </div>
               ))
-            }
+            )}
           </section>
         </SkeletonTheme>
       </div>
@@ -77,7 +83,10 @@ class Suggestions extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => 
+const mapDispatchToProps = dispatch =>
   bindActionCreators(LoadingActions, dispatch);
 
-export default connect(null, mapDispatchToProps)(Suggestions);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Suggestions);

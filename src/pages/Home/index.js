@@ -26,7 +26,7 @@ class Home extends Component {
   /** props */
   static propTypes = {
     updateGlobalLoading: PropTypes.func
-  }
+  };
 
   static defaultProps = {};
 
@@ -38,47 +38,50 @@ class Home extends Component {
     this.props.updateGlobalLoading(true);
 
     const response = await api.post(
-      servicesAPIs.homeLists, 
+      servicesAPIs.homeLists,
       servicesAPIs.homeCredentials,
       servicesAPIs.homeConfig
     );
 
     const sections = response.data.ListSectionResult.Sections;
 
-    this.setState({ 
+    this.setState({
       loading: false,
-      sections 
+      sections
     });
 
     this.props.updateGlobalLoading(false);
   }
 
-  render(){
+  render() {
     const { loading, sections } = this.state;
 
-    return(
+    return (
       <>
         <div className="home-wrapper">
           <Billboard />
 
-          {
-            loading ? <HomeLoading /> :
+          {loading ? (
+            <HomeLoading />
+          ) : (
             <>
               {sections.map((item, index) => (
                 <MoviesList key={index} section={item} />
               ))}
             </>
-          }
-
+          )}
         </div>
       </>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => 
+const mapDispatchToProps = dispatch =>
   bindActionCreators(LoadingActions, dispatch);
 
-const HomeMapped = connect(null, mapDispatchToProps)(Home);
+const HomeMapped = connect(
+  null,
+  mapDispatchToProps
+)(Home);
 
 export default HomeMapped;

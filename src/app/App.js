@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 /* redux */
 import { Provider } from 'react-redux';
@@ -9,27 +9,25 @@ import Loading from '../components/Loading';
 
 /* layouts */
 import Header from '../layout/Header';
-import Socials from '../layout/Socials'
+import Socials from '../layout/Socials';
 
 /* routers */
-import Routes from '../routes';
-
+import SwitchRoutes from '../routes';
 
 function App() {
   return (
     <div>
       <Provider store={store}>
         <Router>
-          
-          <Header />        
+          <Header />
           <div className="box-sized mobile-margin-top relative">
             <Socials />
 
-            <Routes />
+            <Route component={SwitchRoutes} />
           </div>
 
           <div>
-            <Loading  />
+            <Loading />
           </div>
         </Router>
       </Provider>
@@ -37,6 +35,4 @@ function App() {
   );
 }
 
-
-
-export default (App);
+export default App;

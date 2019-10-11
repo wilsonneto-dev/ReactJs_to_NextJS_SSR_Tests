@@ -6,7 +6,7 @@ export const servicesAPIs = {
     'https://service.ottvs.com.br/XB1Store/browserservice.svc/listsection',
 
   homeCredentials: {
-    AuthenticationTicket: 'looke@looke:v7c8ad@#$',
+    AuthenticationTicket: Shared.AuthenticationTicket,
     SectionLocationId: Shared.sectionLocationId
   },
 
@@ -18,7 +18,7 @@ export const servicesAPIs = {
     'https://service.ottvs.com.br/XB1Store/browserservice.svc/findmedia',
 
   homeSectionMoviesFilter: {
-    AuthenticationTicket: 'looke@looke:v7c8ad@#$',
+    AuthenticationTicket: Shared.AuthenticationTicket,
     Criteria: {
       MediaType: 10,
       SectionId: 0
@@ -37,7 +37,7 @@ export const servicesAPIs = {
       BoxBehavior: 2,
       FillSiblings: false,
       FillSiblingsChilds: false,
-      ImageTypeIds: [-2, 4001, 1012],
+      ImageTypeIds: [-2, 4001, 1012, 5001],
       IncludePreOrderItens: false,
       OnlySVODItens: false,
       PageNumber: 0,

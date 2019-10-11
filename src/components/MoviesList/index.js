@@ -46,7 +46,7 @@ class MoviesList extends Component {
     const movies = response.data.FindMediaResult.Movies.map(item => ({
       id: item.Id,
       title: item.FullTitle,
-      image: item.Images.find(image => image.TypeId == -2),
+      image: item.Images.find(image => image.TypeId == 5001),
       imdbId: item.ImdbId,
       url: item.Metadata.UniqueUrl,
       price: item.RentPrice
@@ -76,8 +76,10 @@ class MoviesList extends Component {
                     <div key={index} className="item">
                       <Link
                         to={{
-                          pathname: `/detalhes/${item.url}`,
-                          state: { modal: true }
+                          pathname: `/detalhes/${item.id}/${item.url}`,
+                          state: {
+                            modal: true
+                          }
                         }}
                       >
                         <div className="image-wrapper">
@@ -89,7 +91,7 @@ class MoviesList extends Component {
                 : [1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
                     <div key={index} className="item">
                       <div className="image-wrapper">
-                        <Skeleton height={300} width={200} />
+                        <Skeleton height={200} width={300} />
                       </div>
                     </div>
                   ))}

@@ -1,0 +1,158 @@
+@import '../../global-styles/vars';
+
+.movie-details {
+  &.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+
+    .content {
+      font-family: 'Erika Ormig';
+      position: fixed;
+      z-index: 2;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      height: 90%;
+      max-width: 1370px;
+      max-height: 675px;
+      overflow: auto;
+      background-color: #100f0f;
+      background-image: linear-gradient(-195deg, #100f0f, #4e4b49);
+      background-position: center;
+      background-size: cover;
+      box-sizing: border-box;
+      transition: background-image 0.2s ease-in-out;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      & > .bg-layer {
+        transition: all 0.5s;
+        background-image: linear-gradient(
+          -265deg,
+          rgba(0, 0, 0, 0.9) 30%,
+          rgba(0, 0, 0, 0.6) 70%
+        );
+
+        box-sizing: border-box;
+        padding: 10px 35px;
+        min-height: 100%;
+        width: 100%;
+      }
+
+      .inner-content {
+        width: 65%;
+
+        .trailer-wrap,
+        .background-wrapper {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          background-image: linear-gradient(-195deg, #100f0f, #4e4b49);
+          box-sizing: border-box;
+          transition: background-image 0.2s ease-in-out;
+          overflow: hidden;
+
+          video {
+            width: 100%;
+            height: 100%;
+          }
+
+          .btn-close {
+            z-index: 2;
+          }
+        }
+      }
+
+      .infos {
+        font-family: 'TT Hoves';
+        font-size: 16px;
+        display: block;
+        padding-top: 55px;
+
+        strong {
+          margin: 0 3px;
+        }
+      }
+
+      .btn-close {
+        width: 60px;
+        height: 60px;
+        font-size: 23px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        font-family: sans-serif;
+        font-weight: bold;
+      }
+
+      h1 {
+        margin: 38px 0px;
+        font-size: 65px;
+        text-transform: uppercase;
+        line-height: 60px;
+      }
+
+      p {
+        letter-spacing: 0.5px;
+        font-size: 17px;
+        margin: 0;
+        padding: 0;
+
+        strong {
+          color: $color-focus;
+        }
+      }
+
+      .actors {
+        text-transform: uppercase;
+        display: flex;
+
+        strong {
+          color: $color-focus;
+        }
+
+        span {
+          margin-left: 10px;
+        }
+      }
+
+      .plays {
+        display: flex;
+        & > *:first-child {
+          margin-right: 10px;
+        }
+      }
+
+      .play-wrapper {
+        margin: 40px 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .play {
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        & > span {
+          margin-left: 10px;
+          border-bottom: 2px solid $color-focus;
+        }
+      }
+    }
+  }
+}
+
+@import './responsive.scss';

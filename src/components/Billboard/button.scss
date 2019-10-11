@@ -33,3 +33,9 @@ $play-button-size: 63px;
     transform: translate(4px);
   }
 }
+
+.btn-wrapper:hover {
+  .play {
+    transform: scale(0.95);
+  }
+}
