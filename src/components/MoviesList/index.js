@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { Link } from 'react-router-dom';
+import clsx from 'clsx';
+
+/* slick slider */
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
+import { SliderPrevArrow, SliderNextArrow } from './arrows';
 
 import api, { servicesAPIs } from '../../services/api';
 
@@ -60,11 +67,15 @@ class MoviesList extends Component {
     const { loading, movies } = this.state;
 
     const sliderSettings = {
-      dots: true,
-      infinite: true,
+      dots: false,
+      infinite: false,
       speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      lazyLoad: true,
+      initialSlide: 2,
+      nextArrow: <SliderNextArrow />,
+      prevArrow: <SliderPrevArrow />
     };
 
     return (
@@ -78,23 +89,11 @@ class MoviesList extends Component {
             color="#ff7748"
             highlightColor="#f45728"
           >
-            <Slider {...sliderSettings}>
-              <div>
-                <h3>1</h3>
-              </div>
-              <div>
-                <h3>2</h3>
-              </div>
-              <div>
-                <h3>3</h3>
-              </div>
-              <div>
-                <h3>4</h3>
-              </div>
-            </Slider>
-
-            <div className="movies-slider">
-              {!loading
+            <Slider
+              className={clsx('movies-slider', loading && 'loading')}
+              {...sliderSettings}
+            >
+              {!loading && false
                 ? movies.map((item, index) => (
                     <div key={index} className="item">
                       <Link
@@ -112,13 +111,13 @@ class MoviesList extends Component {
                     </div>
                   ))
                 : [1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
-                    <div key={index} className="item">
+                    <div key={index} className="item loading">
                       <div className="image-wrapper">
                         <Skeleton height={200} width={300} />
                       </div>
                     </div>
                   ))}
-            </div>
+            </Slider>
           </SkeletonTheme>
         </section>
       </>

@@ -10,11 +10,11 @@ class MoviesListLoading extends Component {
           color="#ff7748"
           highlightColor="#f45728"
         >
-          <section className="movies-list inner">
+          <section className="movies-list loading inner">
             <header>
               <Skeleton width={250} />
             </header>
-            <div className="movies-slider">
+            <div className="movies-slider loading">
               {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
                 <div key={index} className="item">
                   <div className="image-wrapper">
