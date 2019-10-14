@@ -93,7 +93,7 @@ class MoviesList extends Component {
               className={clsx('movies-slider', loading && 'loading')}
               {...sliderSettings}
             >
-              {!loading && false
+              {!loading
                 ? movies.map((item, index) => (
                     <div key={index} className="item">
                       <Link

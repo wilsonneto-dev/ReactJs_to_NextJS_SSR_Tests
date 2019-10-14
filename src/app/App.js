@@ -20,7 +20,7 @@ function App() {
       <Provider store={store}>
         <Router>
           <Header />
-          <div className="box-sized mobile-margin-top relative">
+          <div className="box-sized mobile-margin-top">
             <Socials />
 
             <Route component={SwitchRoutes} />

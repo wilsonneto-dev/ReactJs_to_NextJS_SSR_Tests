@@ -5,38 +5,34 @@
   display: block;
   font-family: 'TT Hoves';
 
-  div {
-    padding-top: 90px;
+  .click-area {
+    height: 418px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
 
-    hgroup {
-      h3 {
-        font-size: 15px;
-        margin-left: 9px;
-        font-weight: 500;
-        span {
-          margin-right: 6px;
-          letter-spacing: 1px;
-        }
-      }
-
-      h1 {
-        font-family: 'Luthier bold';
-        color: $color-focus;
-        font-size: 80px;
-        margin-top: 23px;
-        margin-bottom: 16px;
-        letter-spacing: -0.5px;
-        max-width: 500px;
-      }
-
-      .bold {
-        font-weight: bolder;
-      }
+    a {
+      display: block;
+      height: 100%;
+      width: 100%;
     }
+  }
+}
 
-    .play {
-      margin-left: -3px;
-      margin-bottom: 64px;
-    }
+.billboard-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  opacity: 0;
+  transition: all 1s;
+
+  &.loaded {
+    opacity: 1;
   }
 }

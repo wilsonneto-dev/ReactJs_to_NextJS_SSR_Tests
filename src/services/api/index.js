@@ -2,6 +2,12 @@ import axios from 'axios';
 import Shared from '../../configs/Shared';
 
 export const servicesAPIs = {
+  homeBannersUrl:
+    'https://service.ottvs.com.br/XB1Store/browserservice.svc/listbanner',
+  homeBannersReqBody: {
+    AuthenticationTicket: Shared.BannerAuthenticationTicket,
+    BannerLocationId: Shared.BannerLocationId
+  },
   homeLists:
     'https://service.ottvs.com.br/XB1Store/browserservice.svc/listsection',
 

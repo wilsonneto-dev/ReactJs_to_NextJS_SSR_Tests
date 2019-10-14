@@ -20,7 +20,9 @@ import './index.scss';
 class Home extends Component {
   state = {
     loading: true,
-    sections: []
+    sections: [],
+    bannersLoading: true,
+    banners: []
   };
 
   /** props */
@@ -32,6 +34,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.getData();
+    this.getDataBanner();
   }
 
   async getData() {
@@ -53,13 +56,28 @@ class Home extends Component {
     this.props.updateGlobalLoading(false);
   }
 
+  async getDataBanner() {
+    const { homeBannersUrl, homeBannersReqBody, homeConfig } = servicesAPIs;
+    const response = await api.post(
+      homeBannersUrl,
+      homeBannersReqBody,
+      homeConfig
+    );
+    const banners = response.data.ListBannerResult.Banners.map(item => ({
+      id: item.Id,
+      image: item.ImageURL,
+      link: item.UniqueName
+    }));
+    this.setState({ banners, bannersLoading: false });
+  }
+
   render() {
-    const { loading, sections } = this.state;
+    const { loading, sections, banners, bannersLoading } = this.state;
 
     return (
       <>
         <div className="home-wrapper">
-          <Billboard />
+          <Billboard list={banners} requestLoading={bannersLoading} />
 
           {loading ? (
             <HomeLoading />
