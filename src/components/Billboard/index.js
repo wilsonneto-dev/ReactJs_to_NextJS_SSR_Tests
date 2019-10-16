@@ -29,7 +29,7 @@ class Billboard extends Component {
       if (list.length > 0) {
         const [firstBanner] = list;
         this.preLoadImage(firstBanner.image, success => {
-          this.elementBanner.current.style.backgroundImage = `url('${imageTeste}')`;
+          this.elementBanner.current.style.backgroundImage = `url(${imageTeste})`;
           this.setState({ imagesLoading: false }, () => {
             this.setState({ hasLink: firstBanner.link != '' });
             this.elementLink.current.href = firstBanner.link;
@@ -43,8 +43,10 @@ class Billboard extends Component {
   }
 
   componentWillUnmount() {
-    const interval = this.state;
-    if (interval != null) window.clearInterval(interval);
+    const { interval } = this.state;
+    if (interval != null) {
+      window.clearInterval(interval);
+    }
   }
 
   preLoadImage(image, callback) {

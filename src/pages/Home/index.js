@@ -22,7 +22,8 @@ class Home extends Component {
     loading: true,
     sections: [],
     bannersLoading: true,
-    banners: []
+    banners: [],
+    numItensOnSlider: 4
   };
 
   /** props */
@@ -35,6 +36,24 @@ class Home extends Component {
   componentDidMount() {
     this.getData();
     this.getDataBanner();
+    this.updateWindowDimensions();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    const { innerWidth: width } = window;
+    console.log(width);
+
+    if (width > 1000) {
+      this.setState({ numItensOnSlider: 4 });
+    } else if (width > 500) {
+      this.setState({ numItensOnSlider: 3 });
+    } else {
+      this.setState({ numItensOnSlider: 2 });
+    }
   }
 
   async getData() {
@@ -72,7 +91,13 @@ class Home extends Component {
   }
 
   render() {
-    const { loading, sections, banners, bannersLoading } = this.state;
+    const {
+      loading,
+      sections,
+      banners,
+      bannersLoading,
+      numItensOnSlider
+    } = this.state;
 
     return (
       <>
@@ -80,11 +105,15 @@ class Home extends Component {
           <Billboard list={banners} requestLoading={bannersLoading} />
 
           {loading ? (
-            <HomeLoading />
+            <HomeLoading numItensOnSlider={numItensOnSlider} />
           ) : (
             <>
               {sections.map((item, index) => (
-                <MoviesList key={index} section={item} />
+                <MoviesList
+                  numItensSekeleton={numItensOnSlider}
+                  key={index}
+                  section={item}
+                />
               ))}
             </>
           )}

@@ -29,10 +29,9 @@
 
       &.loading {
         display: inline-block;
-        width: 300px !important;
-        height: 400px;
+        width: 30%;
+        max-width: 300px !important;
         margin: 10px !important;
-        /* border: 1px solid red; */
       }
 
       .image-wrapper {
@@ -77,3 +76,5 @@
 .slick-prev:before {
   content: '';
 }
+
+@import './responsive.scss';

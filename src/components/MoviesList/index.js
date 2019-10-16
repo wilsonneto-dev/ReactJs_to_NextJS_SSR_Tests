@@ -7,7 +7,7 @@ import clsx from 'clsx';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-import { SliderPrevArrow, SliderNextArrow } from './arrows';
+import sliderSettings from './slick-slider-config';
 
 import api, { servicesAPIs } from '../../services/api';
 
@@ -63,20 +63,15 @@ class MoviesList extends Component {
   }
 
   render() {
+    const { numItensSekeleton } = this.props;
     const { Id: id, Name: name, Url: url } = this.props.section;
     const { loading, movies } = this.state;
 
-    const sliderSettings = {
-      dots: false,
-      infinite: false,
-      speed: 500,
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      lazyLoad: true,
-      initialSlide: 2,
-      nextArrow: <SliderNextArrow />,
-      prevArrow: <SliderPrevArrow />
-    };
+    // skeleton items array
+    let arrItemsSkeleton = [];
+    for (let index = 0; index < numItensSekeleton; index++) {
+      arrItemsSkeleton.push(index);
+    }
 
     return (
       <>
@@ -89,35 +84,39 @@ class MoviesList extends Component {
             color="#ff7748"
             highlightColor="#f45728"
           >
-            <Slider
-              className={clsx('movies-slider', loading && 'loading')}
-              {...sliderSettings}
-            >
-              {!loading
-                ? movies.map((item, index) => (
-                    <div key={index} className="item">
-                      <Link
-                        to={{
-                          pathname: `/detalhes/${item.id}/${item.url}`,
-                          state: {
-                            modal: true
-                          }
-                        }}
-                      >
-                        <div className="image-wrapper">
-                          <img src={item.image.Url} alt={item.title} />
-                        </div>
-                      </Link>
-                    </div>
-                  ))
-                : [1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
-                    <div key={index} className="item loading">
+            {!loading /* && false */ ? (
+              <Slider
+                className={clsx('movies-slider', loading && 'loading')}
+                {...sliderSettings}
+              >
+                {movies.map((item, index) => (
+                  <div key={index} className="item">
+                    <Link
+                      to={{
+                        pathname: `/detalhes/${item.id}/${item.url}`,
+                        state: {
+                          modal: true
+                        }
+                      }}
+                    >
                       <div className="image-wrapper">
-                        <Skeleton height={200} width={300} />
+                        <img src={item.image.Url} alt={item.title} />
                       </div>
+                    </Link>
+                  </div>
+                ))}
+              </Slider>
+            ) : (
+              <div className="movies-slider loading-skeleton loading">
+                {arrItemsSkeleton.map((item, index) => (
+                  <div key={index} className="item loading">
+                    <div className="image-wrapper">
+                      <Skeleton width="100%" height="100%" />
                     </div>
-                  ))}
-            </Slider>
+                  </div>
+                ))}
+              </div>
+            )}
           </SkeletonTheme>
         </section>
       </>

@@ -1,0 +1,49 @@
+@import '../../global-styles/vars';
+
+@media (max-width: 1500) {
+  .movies-list {
+    .movies-slider {
+      .item {
+        display: inline-block;
+        width: 250px;
+        margin: 10px !important;
+
+        .image-wrapper {
+          margin: 0 auto;
+          width: 250px;
+          height: 165px;
+        }
+      }
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      overflow: hidden;
+
+      .item {
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        width: 250px;
+        height: 165px;
+        margin: 5px;
+
+        .image-wrapper {
+          margin: 0 auto;
+
+          span > span {
+            display: inline-block;
+            width: 100% !important;
+            height: 100% !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+}
+
+@media (max-width: $breakpoint-mobile) {
+}

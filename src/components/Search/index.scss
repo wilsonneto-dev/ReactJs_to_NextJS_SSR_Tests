@@ -1,0 +1,31 @@
+@import '../../global-styles/vars';
+
+form.search-form {
+  display: inline-block;
+  background-color: $color-focus;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  font-family: 'TT Hoves';
+
+  input:first-child {
+    background-color: inherit;
+    font-family: inherit;
+    border: 0;
+    color: $color-text;
+    font-size: 14px;
+    font-weight: lighter;
+    outline: 0;
+    width: 120px;
+
+    &::placeholder {
+      font-family: inherit;
+      color: rgba(255, 255, 255, 0.7);
+      text-overflow: ellipsis;
+    }
+  }
+
+  .img {
+    margin-left: 5px;
+    vertical-align: middle;
+  }
+}

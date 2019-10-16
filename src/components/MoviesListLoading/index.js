@@ -3,6 +3,14 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 class MoviesListLoading extends Component {
   render() {
+    const { numItensOnSlider } = this.props;
+    let arrLoadingItems = [];
+    for (let index = 0; index < numItensOnSlider; index++)
+      arrLoadingItems.push(index);
+
+    console.log(arrLoadingItems);
+    console.log(numItensOnSlider);
+
     return (
       <>
         <SkeletonTheme
@@ -14,8 +22,8 @@ class MoviesListLoading extends Component {
             <header>
               <Skeleton width={250} />
             </header>
-            <div className="movies-slider loading">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
+            <div className="movies-slider loading-skeleton loading">
+              {arrLoadingItems.map((item, index) => (
                 <div key={index} className="item">
                   <div className="image-wrapper">
                     <Skeleton height={200} width={300} />
