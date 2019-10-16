@@ -2,7 +2,7 @@ import React, { Component, createRef } from 'react';
 import clsx from 'clsx';
 
 import imageTeste from '../../images/bg-test-01.jpg';
-import imageTeste2 from '../../images/bg-test-02.jpg';
+import imageTeste2 from '../../images/banner-guide.jpg';
 
 import './index.scss';
 
