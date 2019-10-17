@@ -5,6 +5,8 @@ import { SkeletonTheme } from 'react-loading-skeleton';
 
 import Shared from '../../configs/Shared';
 
+import imageBackground from '../../images/bg-suggestions.png';
+
 import './index.scss';
 
 /* redux */
@@ -23,11 +25,14 @@ class Suggestions extends Component {
 
   componentDidMount() {
     document.title = `Sugestões - ${Shared.defaultTitle}`;
+    document.body.style.backgroundImage = `url('${imageBackground}')`;
     this.getData();
   }
 
   componentWillUnmount() {
     document.title = `${Shared.defaultTitle}`;
+    document.body.style.backgroundImage =
+      'linear-gradient(#0b0704, #a0361e 70%)';
   }
 
   async getData() {

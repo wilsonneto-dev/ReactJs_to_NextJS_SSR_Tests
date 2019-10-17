@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 /* redux */
@@ -15,6 +15,10 @@ import Socials from '../layout/Socials';
 import SwitchRoutes from '../routes';
 
 function App() {
+  useEffect(() => {
+    console.log('test');
+  });
+
   return (
     <div>
       <Provider store={store}>
