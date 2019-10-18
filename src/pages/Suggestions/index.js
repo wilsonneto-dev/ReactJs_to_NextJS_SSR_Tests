@@ -8,6 +8,8 @@ import Shared from '../../configs/Shared';
 import background from '../../utils/background';
 import imageBackground from '../../images/bg-suggestions.png';
 
+import LazyImage from '../../components/LazyImage';
+
 import './index.scss';
 
 /* redux */
@@ -69,7 +71,7 @@ class Suggestions extends Component {
               suggestions.map(item => (
                 <div className="item" key={item.id}>
                   <div className="avatar-wrapper">
-                    <img src={item.imageUrl} alt={item.name} />
+                    <LazyImage src={item.imageUrl} alt={item.name} />
                   </div>
                   <h3>{item.name}</h3>
                   {item.links.map((link, index) => (
