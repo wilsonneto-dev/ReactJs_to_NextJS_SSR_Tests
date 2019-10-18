@@ -1,0 +1,34 @@
+@import '../../global-styles/vars';
+
+@media screen and (max-width: $breakpoint-tablet) {
+  .billboard-background {
+    position: fixed;
+    z-index: -1;
+    height: 100vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    background-position: center top;
+    background-attachment: fixed;
+    opacity: 0;
+    transition: all 1s;
+  }
+}
+
+@media screen and (max-width: $breakpoint-mobile) {
+  .billboard-background {
+    position: absolute;
+    background-size: 180%;
+    background-position: center 60px;
+    background-attachment: scroll;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 275px;
+  }
+
+  .billboard .click-area {
+    height: 250px;
+  }
+}
