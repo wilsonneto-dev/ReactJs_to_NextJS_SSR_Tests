@@ -21,6 +21,10 @@ class Billboard extends Component {
     this.elementLink = createRef();
   }
 
+  componentDidMount() {
+    window.addEventListener('scroll', this.listenToScroll);
+  }
+
   componentDidUpdate() {
     const { list, requestLoading } = this.props;
     const { imagesLoading } = this.state;
@@ -47,6 +51,8 @@ class Billboard extends Component {
     if (interval != null) {
       window.clearInterval(interval);
     }
+
+    window.removeEventListener('scroll', this.listenToScroll);
   }
 
   preLoadImage(image, callback) {
@@ -63,9 +69,7 @@ class Billboard extends Component {
   initPreloadingImages() {
     const { list } = this.props;
     list.forEach(item => {
-      this.preLoadImage(item.image, () => {
-        console.log(`pre loaded: ${item.image}...`);
-      });
+      this.preLoadImage(item.image, () => {});
     });
   }
 
@@ -98,6 +102,20 @@ class Billboard extends Component {
 
     this.setState({ interval });
   }
+
+  listenToScroll = () => {
+    const winScroll =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    const hiddenBanner = winScroll > 450;
+
+    const opacity = hiddenBanner ? 0 : 1;
+    this.elementBanner.current.style.opacity = opacity;
+  };
 
   render() {
     const { requestLoading, list } = this.props;
