@@ -51,6 +51,12 @@
     display: inline-block;
     text-align: center;
 
+    .flex {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 35px;
+    }
+
     .box {
       text-align: left;
       vertical-align: middle;

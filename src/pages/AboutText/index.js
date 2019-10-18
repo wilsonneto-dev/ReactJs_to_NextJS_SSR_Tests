@@ -1,23 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import Shared from '../../configs/Shared';
 
 import './index.scss';
 
+import background from '../../utils/background';
 import imageBackground from '../../images/bg-about.png';
+
 import iconArrowUp from '../../images/arrow-up.png';
 
 class AboutText extends Component {
   componentDidMount() {
     document.title = `À La Carte - ${Shared.defaultTitle}`;
-    document.body.style.backgroundImage = `url('${imageBackground}')`;
+    background.set(imageBackground);
   }
 
   componentWillUnmount() {
     document.title = `${Shared.defaultTitle}`;
-    document.body.style.backgroundImage =
-      'linear-gradient(#0b0704, #a0361e 70%)';
+    background.clear(imageBackground);
   }
 
   render() {

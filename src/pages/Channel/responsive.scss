@@ -21,9 +21,21 @@
       }
     }
   }
+
+  .channel-flex {
+    padding-top: 25px;
+    display: block;
+  }
+
+  .channel-wrapper {
+    display: block;
+  }
 }
 
 @media (max-width: $breakpoint-mobile) {
+  .video-wrapper {
+    margin-bottom: 20px;
+  }
   .channel-wrapper {
     .side {
       &:last-child {

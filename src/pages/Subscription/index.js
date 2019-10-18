@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Shared from '../../configs/Shared';
 
+import background from '../../utils/background';
 import imageBackground from '../../images/bg-subscription.png';
 
 import './index.scss';
@@ -9,13 +10,12 @@ import './index.scss';
 class Subscription extends Component {
   componentDidMount() {
     document.title = `Assinatura - ${Shared.defaultTitle}`;
-    document.body.style.backgroundImage = `url('${imageBackground}')`;
+    background.set(imageBackground);
   }
 
   componentWillUnmount() {
     document.title = `${Shared.defaultTitle}`;
-    document.body.style.backgroundImage =
-      'linear-gradient(#0b0704, #a0361e 70%)';
+    background.clear();
   }
 
   render() {
@@ -36,30 +36,34 @@ class Subscription extends Component {
           </div>
 
           <div>
-            <div className="box">
-              <h1>Assinatura Mensal</h1>
-              <div className="valor">
-                <span>R$ 9,90</span>
-                <span className="small">nove reais e noventa centavos</span>
+            <div className="flex">
+              <div className="box">
+                <h1>Assinatura Mensal</h1>
+                <div className="valor">
+                  <span>R$ 9,90</span>
+                  <span className="small">nove reais e noventa centavos</span>
+                </div>
+                <p>
+                  Plano mensal com acesso a até 90% dos filmes do canal em 2
+                  dispositivos simultaneamente.
+                </p>
+                <a href="/">Clique aqui</a>
               </div>
-              <p>
-                Plano mensal com acesso a até 90% dos filmes do canal em 2
-                dispositivos simultaneamente.
-              </p>
-              <a href="/">Clique aqui</a>
-            </div>
-            <div className="box">
-              <h1>Locação</h1>
-              <div className="valor">
-                <span className="label">catálogo</span>
-                <span>R$ 4,90</span>
-                <span class="small">quatro reais e noventa centavos</span>
+              <div className="box">
+                <h1>Locação</h1>
+                <div className="valor">
+                  <span className="label">catálogo</span>
+                  <span>R$ 4,90</span>
+                  <span className="small">quatro reais e noventa centavos</span>
+                </div>
+                <p className="big">
+                  especiais e lançamentos com preços variados
+                </p>
+                <p>
+                  Locação por filme unitário para assistir em um período de 48
+                  horas após a compra.
+                </p>
               </div>
-              <p className="big">especiais e lançamentos com preços variados</p>
-              <p>
-                Locação por filme unitário para assistir em um período de 48
-                horas após a compra.
-              </p>
             </div>
           </div>
         </div>

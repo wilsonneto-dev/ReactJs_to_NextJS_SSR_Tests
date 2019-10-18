@@ -5,6 +5,7 @@ import { SkeletonTheme } from 'react-loading-skeleton';
 
 import Shared from '../../configs/Shared';
 
+import background from '../../utils/background';
 import imageBackground from '../../images/bg-suggestions.png';
 
 import './index.scss';
@@ -25,27 +26,22 @@ class Suggestions extends Component {
 
   componentDidMount() {
     document.title = `Sugestões - ${Shared.defaultTitle}`;
-    document.body.style.backgroundImage = `url('${imageBackground}')`;
+    background.set(imageBackground);
     this.getData();
   }
 
   componentWillUnmount() {
     document.title = `${Shared.defaultTitle}`;
-    document.body.style.backgroundImage =
-      'linear-gradient(#0b0704, #a0361e 70%)';
+    background.clear(imageBackground);
   }
 
   async getData() {
     this.props.updateGlobalLoading(true);
 
-    api
-      .get(servicesAPIs.suggestions)
-      .then(response => {
-        this.setState({ suggestions: response.data });
-        this.props.updateGlobalLoading(false);
-      })
-      .catch(error => {})
-      .finally(() => {});
+    api.get(servicesAPIs.suggestions).then(response => {
+      this.setState({ suggestions: response.data });
+      this.props.updateGlobalLoading(false);
+    });
   }
 
   render() {
@@ -76,7 +72,16 @@ class Suggestions extends Component {
                     <img src={item.imageUrl} alt={item.name} />
                   </div>
                   <h3>{item.name}</h3>
-                  <h4>{item.movieTitle}</h4>
+                  {item.links.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <h4>{link.title}</h4>
+                    </a>
+                  ))}
                   <p>{item.description}</p>
                 </div>
               ))

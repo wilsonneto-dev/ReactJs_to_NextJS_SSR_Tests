@@ -3,12 +3,9 @@
 
 .channel-wrapper {
   padding-top: 30px;
+  display: flex;
 
   .side {
-    display: inline-block;
-    box-sizing: border-box;
-    vertical-align: middle;
-
     &:first-child {
       width: 66.6%;
     }
@@ -23,7 +20,6 @@
       height: 0;
       overflow: hidden;
       max-width: 99%;
-      margin: 10px auto;
 
       iframe,
       object,
@@ -36,6 +32,11 @@
       }
     }
   }
+}
+
+.channel-flex {
+  display: flex;
+  flex-direction: column;
 }
 
 .arrow-wrapper {

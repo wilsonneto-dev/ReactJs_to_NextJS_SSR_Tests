@@ -25,10 +25,22 @@
       background-position: left center;
       background-size: cover;
       box-sizing: border-box;
-      transition: background-image 0.2s ease-in-out;
 
       &::-webkit-scrollbar {
         display: none;
+      }
+
+      & > .bg-image {
+        transition: all 1s;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-size: cover;
+        background-position: left center;
+        z-index: -1;
+        opacity: 0;
       }
 
       & > .bg-layer {

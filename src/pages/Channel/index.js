@@ -23,72 +23,80 @@ class Channel extends Component {
   }
 
   componentDidMount() {
-    document.title = `Seu Cardápio Semanal - ${ Shared.defaultTitle }`;
+    document.title = `Seu Cardápio Semanal - ${Shared.defaultTitle}`;
     this.getData();
   }
 
   componentWillUnmount() {
-    document.title = `${ Shared.defaultTitle }`;
+    document.title = `${Shared.defaultTitle}`;
   }
 
   getData() {
     this.props.updateGlobalLoading(true);
 
-    api.get(servicesAPIs.channelVideos)
-      .then(res => {
+    api.get(servicesAPIs.channelVideos).then(res => {
+      // get videos from youtube
+      const channelVideos = res.data.items.map(item => ({
+        id: item.id.videoId,
+        title: item.snippet.title,
+        thumb: item.snippet.thumbnails.high
+      }));
 
-        // get videos from youtube
-        const channelVideos = res.data.items.map(item => ({
-          id: item.id.videoId,
-          title: item.snippet.title,
-          thumb: item.snippet.thumbnails.high
-        }));
+      // update state
+      this.setState({ channelVideos });
 
-        // update state
-        this.setState({ channelVideos });
-
-        this.props.updateGlobalLoading(false);
-      });
+      this.props.updateGlobalLoading(false);
+    });
   }
-  
+
   render() {
-    const { channelVideos } = this.state; 
+    const { channelVideos } = this.state;
 
     return (
       <>
         <div className="channel-wrapper inner featured">
           <div className="side">
             <div className="video-wrapper embed-container animated-background">
-              { 
-                channelVideos[0] && 
-                <iframe src={ `https://www.youtube.com/embed/${channelVideos[0].id}` } frameBorder="0" allowFullScreen></iframe>
-              }
+              {channelVideos[0] && (
+                <iframe
+                  src={`https://www.youtube.com/embed/${channelVideos[0].id}`}
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
+              )}
             </div>
           </div>
-          
+
           <div className="side">
-              <div className="video-wrapper">
+            <div className="channel-flex">
+              <div className="video-wrapper padding">
                 <div className="embed-container animated-background">
-                  { 
-                    channelVideos[1] && 
-                    <iframe src={ `https://www.youtube.com/embed/${channelVideos[1].id}` } frameBorder="0" allowFullScreen></iframe>
-                  }
+                  {channelVideos[1] && (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${channelVideos[1].id}`}
+                      frameBorder="0"
+                      allowFullScreen
+                    ></iframe>
+                  )}
                 </div>
               </div>
-            
-              <div className="video-wrapper">
+              <div className="video-wrapper padding">
                 <div className="embed-container animated-background">
-                  { 
-                    channelVideos[2] && 
-                    <iframe src={ `https://www.youtube.com/embed/${channelVideos[2].id}` } frameBorder="0" allowFullScreen></iframe>
-                  }
+                  {channelVideos[2] && (
+                    <iframe
+                      src={`https://www.youtube.com/embed/${channelVideos[2].id}`}
+                      frameBorder="0"
+                      allowFullScreen
+                    ></iframe>
+                  )}
                 </div>
               </div>
-          </div>  
+            </div>
+          </div>
         </div>
         <div className="channer-wrapper arrow-wrapper inner">
           <Link to="/cardapio-lista">
-            <img src={ iconArrowDown } alt="Ver lista completa" />
+            <img src={iconArrowDown} alt="Ver lista completa" />
           </Link>
         </div>
       </>
@@ -96,7 +104,10 @@ class Channel extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => 
+const mapDispatchToProps = dispatch =>
   bindActionCreators(LoadingActions, dispatch);
 
-export default connect(null, mapDispatchToProps)(Channel);
+export default connect(
+  null,
+  mapDispatchToProps
+)(Channel);

@@ -5,15 +5,20 @@ import Shared from '../../configs/Shared';
 
 import './index.scss';
 
+import background from '../../utils/background';
+import imageBackground from '../../images/bg-about.png';
+
 import iconArrowDown from '../../images/arrow-down.png';
 
 class AboutVideo extends Component {
   componentDidMount() {
     document.title = `Á La Carte - ${Shared.defaultTitle}`;
+    background.set(imageBackground);
   }
 
   componentWillUnmount() {
     document.title = `${Shared.defaultTitle}`;
+    background.clear();
   }
 
   render() {

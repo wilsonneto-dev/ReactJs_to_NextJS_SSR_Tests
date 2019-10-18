@@ -2,6 +2,8 @@ import React, { Component, createRef } from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 
+import preloadImage from '../../utils/preloadImage';
+
 import api from '../../services/api';
 import apiSettings from './api-settings';
 import Shared from '../../configs/Shared';
@@ -65,6 +67,11 @@ class MovieDetails extends Component {
       loading: false,
       movie
     });
+
+    preloadImage(movie.imageLarger, success => {
+      this.bgImage.current.style.backgroundImage = `url('${movie.imageLarger}')`;
+      this.bgImage.current.style.opacity = 1;
+    });
   }
 
   render() {
@@ -74,12 +81,8 @@ class MovieDetails extends Component {
 
     return (
       <div className="movie-details modal">
-        <div
-          className="content"
-          style={
-            loading ? null : { backgroundImage: `url(${movie.imageLarger})` }
-          }
-        >
+        <div className="content">
+          <div ref={this.bgImage} className="bg-image"></div>
           <div className="bg-layer">
             <div className="btn-close" onClick={history.goBack}>
               x

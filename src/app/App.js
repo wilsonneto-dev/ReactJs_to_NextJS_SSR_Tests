@@ -14,16 +14,27 @@ import Socials from '../layout/Socials';
 /* routers */
 import SwitchRoutes from '../routes';
 
+/* images to preload */
+import imageBackgroundSuggestions from '../images/bg-suggestions.png';
+import imageBackgroundSubscription from '../images/bg-subscription.png';
+import imageBackgroundAbout from '../images/bg-about.png';
+
+import preloadImage from '../utils/preloadImage';
+
 function App() {
   useEffect(() => {
-    console.log('test');
-  });
+    /* page backgrounds preloading */
+    preloadImage(imageBackgroundSuggestions, () => {});
+    preloadImage(imageBackgroundSubscription, () => {});
+    preloadImage(imageBackgroundAbout, () => {});
+  }, []);
 
   return (
     <div>
       <Provider store={store}>
         <Router>
           <Header />
+          <div id="body-fix-background-layer"></div>
           <div className="box-sized mobile-margin-top">
             <Socials />
 

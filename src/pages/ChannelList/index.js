@@ -20,72 +20,71 @@ class ChannelList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { items : [] };
+    this.state = { items: [] };
   }
 
   componentDidMount() {
-    document.title = `Seu Cardápio Semanal - ${ Shared.defaultTitle }`;
+    document.title = `Seu Cardápio Semanal - ${Shared.defaultTitle}`;
     this.getData();
   }
 
   componentWillUnmount() {
-    document.title = `${ Shared.defaultTitle }`;
+    document.title = `${Shared.defaultTitle}`;
   }
 
   async getData() {
     this.props.updateGlobalLoading(true);
 
-    api.get(servicesAPIs.channelVideosList)
-      .then(res => {
-        const items = res.data.items.map( item => ({
-          id: item.id.videoId,
-          title: item.snippet.title,
-          thumb: item.snippet.thumbnails.high.url
-        }));
+    api.get(servicesAPIs.channelVideosList).then(res => {
+      const items = res.data.items.map(item => ({
+        id: item.id.videoId,
+        title: item.snippet.title,
+        thumb: item.snippet.thumbnails.high.url
+      }));
 
-        items.pop();
-        this.setState({ items });
+      items.pop();
+      this.setState({ items });
 
-        this.props.updateGlobalLoading(false);
-      });
+      this.props.updateGlobalLoading(false);
+    });
   }
 
   render() {
     const { items } = this.state;
 
     return (
-      <SkeletonTheme className="skeleton" color="#ff7748" highlightColor="#f45728">
-       <div className="channel-list-wrapper inner arrow">
+      <SkeletonTheme
+        className="skeleton"
+        color="#ff7748"
+        highlightColor="#f45728"
+      >
+        <div className="channel-list-wrapper inner arrow">
           <Link to="/cardapio-semanal">
-            <img src={ iconArrowUp } alt="Voltar" />
+            <img src={iconArrowUp} alt="Voltar" />
           </Link>
         </div>
         <div className="channel-list-wrapper inner">
           <ul>
-
-            {
-              items.length == 0 ? 
-              <Loading /> :
+            {items.length == 0 ? (
+              <Loading />
+            ) : (
               items.map((item, i) => (
-                <li key={ i }>
+                <li key={i}>
                   <div className="video-wrapper">
                     <div className="image-wrapper">
-                      <a target="_blank" rel="noopener noreferrer" href={ `https://www.youtube.com/watch?v=${item.id}` }>
-                        <img alt={ item } src={ `https://img.youtube.com/vi/${item.id}/mqdefault.jpg` } />
-                      </a>
+                      <iframe
+                        src={`https://www.youtube.com/embed/${item.id}`}
+                        frameBorder="0"
+                        allowFullScreen
+                      ></iframe>
                     </div>
                     <div className="text">
-                      <h3>
-                        <a target="_blank" rel="noopener noreferrer" href={ `https://www.youtube.com/watch?v=${item.id}` }>
-                          { item.title }
-                        </a>
-                      </h3>
+                      <h3>{item.title}</h3>
                     </div>
                   </div>
                 </li>
               ))
-            }
-
+            )}
           </ul>
         </div>
       </SkeletonTheme>
@@ -93,7 +92,10 @@ class ChannelList extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => 
+const mapDispatchToProps = dispatch =>
   bindActionCreators(LoadingActions, dispatch);
 
-export default connect(null, mapDispatchToProps)(ChannelList);
+export default connect(
+  null,
+  mapDispatchToProps
+)(ChannelList);
