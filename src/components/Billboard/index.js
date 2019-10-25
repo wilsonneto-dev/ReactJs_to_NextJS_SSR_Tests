@@ -33,7 +33,7 @@ class Billboard extends Component {
       if (list.length > 0) {
         const [firstBanner] = list;
         this.preLoadImage(firstBanner.image, success => {
-          this.elementBanner.current.style.backgroundImage = `url(${imageTeste})`;
+          this.elementBanner.current.style.backgroundImage = `url(${firstBanner.image})`;
           this.setState({ imagesLoading: false }, () => {
             this.setState({ hasLink: firstBanner.link != '' });
             this.elementLink.current.href = firstBanner.link;
@@ -75,9 +75,6 @@ class Billboard extends Component {
 
   changeBannerIndex(index) {
     const banner = this.props.list[index];
-    const newImage = index % 2 ? imageTeste : imageTeste2;
-    this.elementBanner.current.style.backgroundImage = `url('${newImage}')`;
-
     const hasLink = banner.link != '';
     this.setState({ hasLink });
 

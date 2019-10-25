@@ -1,9 +1,9 @@
 const Shared = {
   defaultTitle: 'Petra Belas Artes',
-  sectionLocationId: 8001,
-  AuthenticationTicket: 'univer@univer:e4rt5@#r$',
+  sectionLocationId: 9033,
+  AuthenticationTicket: 'looke@looke:v7c8ad@#$',
   BannerAuthenticationTicket: 'looke@looke:v7c8ad@#$',
-  BannerLocationId: 52
+  BannerLocationId: 907
 };
 
 export default Shared;
