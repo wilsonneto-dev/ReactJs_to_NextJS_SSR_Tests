@@ -69,8 +69,10 @@ class MovieDetails extends Component {
     });
 
     preloadImage(movie.imageLarger, success => {
-      this.bgImage.current.style.backgroundImage = `url('${movie.imageLarger}')`;
-      this.bgImage.current.style.opacity = 1;
+      if (this.bgImage.current != null) {
+        this.bgImage.current.style.backgroundImage = `url('${movie.imageLarger}')`;
+        this.bgImage.current.style.opacity = 1;
+      }
     });
   }
 

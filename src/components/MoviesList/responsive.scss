@@ -42,6 +42,38 @@
   }
 }
 
+@media (max-width: $breakpoint-small-monitor) {
+  .movies-list {
+    padding-top: 15px;
+    padding-bottom: 30px;
+
+    &:last-child {
+      padding-bottom: 0px;
+    }
+
+    h2 {
+      font-family: 'DK Cinnabar';
+      color: $color-focus;
+      font-size: 20px;
+      font-weight: 100;
+      padding-left: 20px;
+      padding-bottom: 10px;
+    }
+
+    .image-wrapper {
+      padding: 0 13px;
+    }
+
+    .slick-arrow {
+      margin-top: -10px;
+
+      img {
+        width: 20px;
+      }
+    }
+  }
+}
+
 @media (max-width: $breakpoint-tablet) {
 }
 

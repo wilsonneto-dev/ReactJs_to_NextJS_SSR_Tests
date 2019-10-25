@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
+import './index.scss';
+
 class MoviesListLoading extends Component {
   render() {
     const { numItensOnSlider } = this.props;
     let arrLoadingItems = [];
     for (let index = 0; index < numItensOnSlider; index++)
       arrLoadingItems.push(index);
-
-    console.log(arrLoadingItems);
-    console.log(numItensOnSlider);
 
     return (
       <>

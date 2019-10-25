@@ -13,12 +13,12 @@ import iconArrowDown from '../../images/arrow-down.png';
 class AboutVideo extends Component {
   componentDidMount() {
     document.title = `Á La Carte - ${Shared.defaultTitle}`;
-    background.set(imageBackground);
+    // background.set(imageBackground);
   }
 
   componentWillUnmount() {
     document.title = `${Shared.defaultTitle}`;
-    background.clear();
+    // background.clear();
   }
 
   render() {

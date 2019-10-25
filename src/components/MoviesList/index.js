@@ -9,6 +9,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import sliderSettings from './slick-slider-config';
 
+import LazyImage from '../LazyImage';
+
 import api, { servicesAPIs } from '../../services/api';
 
 import './index.scss';
@@ -84,7 +86,7 @@ class MoviesList extends Component {
             color="#ff7748"
             highlightColor="#f45728"
           >
-            {!loading /* && false */ ? (
+            {!loading ? (
               <Slider
                 className={clsx('movies-slider', loading && 'loading')}
                 {...sliderSettings}
@@ -100,7 +102,7 @@ class MoviesList extends Component {
                       }}
                     >
                       <div className="image-wrapper">
-                        <img src={item.image.Url} alt={item.title} />
+                        <LazyImage src={item.image.Url} alt={item.title} />
                       </div>
                     </Link>
                   </div>
@@ -111,7 +113,7 @@ class MoviesList extends Component {
                 {arrItemsSkeleton.map((item, index) => (
                   <div key={index} className="item loading">
                     <div className="image-wrapper">
-                      <Skeleton width="100%" height="100%" />
+                      <Skeleton height={200} width={300} />
                     </div>
                   </div>
                 ))}

@@ -27,7 +27,8 @@ body {
   position: relative;
 }
 
-#body-fix-background-layer {
+#body-fix-background-layer,
+#body-fix-background-layer-gradient {
   position: fixed;
   left: 0;
   top: 0;
@@ -41,6 +42,12 @@ body {
   opacity: 0;
   transition: all 0.5s;
   z-index: -1;
+
+  &#body-fix-background-layer-gradient {
+    z-index: -2;
+    background: $bg-gradient;
+    opacity: 1;
+  }
 }
 
 @import 'responsive.scss';

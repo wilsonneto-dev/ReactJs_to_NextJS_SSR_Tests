@@ -16,8 +16,10 @@ class LazyImage extends Component {
     if (src != null) {
       preloadImage(src, success => {
         if (success) {
-          this.refImg.current.src = src;
-          this.refImg.current.style.opacity = '1';
+          if (this.refImg.current != null) {
+            this.refImg.current.src = src;
+            this.refImg.current.style.opacity = '1';
+          }
         }
       });
     }

@@ -35,6 +35,7 @@ function App() {
         <Router>
           <Header />
           <div id="body-fix-background-layer"></div>
+          <div id="body-fix-background-layer-gradient"></div>
           <div className="box-sized mobile-margin-top">
             <Socials />
 

@@ -43,31 +43,23 @@ class Header extends Component {
                 <Link to="/">Início</Link>
                 <span className="bullet"></span>
               </li>
-
               <li className={clsx(pathname === '/sobre' && 'active')}>
                 <Link to="/sobre">Sobre</Link>
                 <span className="bullet"></span>
               </li>
-
               <li className={clsx(pathname === '/assinatura' && 'active')}>
                 <Link to="/assinatura">Assinatura</Link>
                 <span className="bullet"></span>
               </li>
-
               <li
                 className={clsx(pathname === '/cardapio-semanal' && 'active')}
               >
                 <Link to="/cardapio-semanal">Seu Cardápio Semanal</Link>
                 <span className="bullet"></span>
               </li>
-
               <li className={clsx(pathname === '/sugestoes' && 'active')}>
                 <Link to="/sugestoes">Sugestões</Link>
                 <span className="bullet"></span>
-              </li>
-
-              <li>
-                <Search />
               </li>
             </ul>
           </nav>

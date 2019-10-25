@@ -1,5 +1,11 @@
 @import '../../global-styles/vars';
 
+@media screen and (max-width: $breakpoint-small-monitor) {
+  .billboard .click-area {
+    height: 320px;
+  }
+}
+
 @media screen and (max-width: $breakpoint-tablet) {
   .billboard-background {
     position: fixed;

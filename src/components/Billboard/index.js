@@ -33,7 +33,9 @@ class Billboard extends Component {
       if (list.length > 0) {
         const [firstBanner] = list;
         this.preLoadImage(firstBanner.image, success => {
-          this.elementBanner.current.style.backgroundImage = `url(${firstBanner.image})`;
+          this.elementBanner.current.style.backgroundImage = `url(${
+            /*firstBanner.image*/ imageTeste
+          })`;
           this.setState({ imagesLoading: false }, () => {
             this.setState({ hasLink: firstBanner.link != '' });
             this.elementLink.current.href = firstBanner.link;
@@ -108,7 +110,7 @@ class Billboard extends Component {
       document.documentElement.scrollHeight -
       document.documentElement.clientHeight;
 
-    const hiddenBanner = winScroll > 450;
+    const hiddenBanner = winScroll > 150;
 
     const opacity = hiddenBanner ? 0 : 1;
     this.elementBanner.current.style.opacity = opacity;

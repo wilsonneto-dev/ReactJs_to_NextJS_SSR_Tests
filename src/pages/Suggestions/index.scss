@@ -72,4 +72,8 @@
   }
 }
 
+.suggestions .item .avatar-wrapper img {
+  border-radius: 50%;
+}
+
 @import './responsive.scss';
