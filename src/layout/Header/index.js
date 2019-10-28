@@ -43,7 +43,12 @@ class Header extends Component {
                 <Link to="/">Início</Link>
                 <span className="bullet"></span>
               </li>
-              <li className={clsx(pathname === '/sobre' && 'active')}>
+              <li
+                className={clsx(
+                  (pathname === '/sobre' || pathname === '/sobre-texto') &&
+                    'active'
+                )}
+              >
                 <Link to="/sobre">Sobre</Link>
                 <span className="bullet"></span>
               </li>

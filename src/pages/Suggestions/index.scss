@@ -3,21 +3,23 @@
 .header {
   font-family: 'TT Hoves';
   color: $color-text;
-  padding-top: 90px;
+  padding-top: 50px;
 
   h1 {
     font-family: 'TT Hoves Bold';
     color: $color-focus;
-    font-size: 80px;
+    font-size: 50px;
     margin-bottom: 21px;
+    padding-left: 30px;
   }
 
   p {
     padding: 0;
     margin: 0;
-    font-size: 21px;
-    line-height: 23px;
+    font-size: 18px;
+    line-height: 20px;
     max-width: 350px;
+    padding-left: 30px;
   }
 }
 
@@ -28,7 +30,8 @@
   text-align: center;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  padding-left: 60px;
 
   .item {
     text-align: left;
@@ -42,7 +45,8 @@
       display: inline-block;
       overflow: hidden;
       margin-bottom: 10px;
-      min-height: 250px;
+      min-height: 175px;
+      width: 175px;
 
       img {
         width: 100%;
@@ -53,21 +57,22 @@
       text-transform: uppercase;
       font-family: 'TT Hoves Bold';
       color: $color-focus;
-      font-size: 18px;
+      font-size: 14px;
+      margin-bottom: 15px;
     }
 
     h4 {
       font-family: 'TT Hoves Bold';
       font-weight: normal;
-      font-size: 18px;
+      font-size: 13px;
       letter-spacing: 1px;
-      margin-bottom: 7px;
+      margin-top: 4px;
     }
 
     p {
       padding: 0;
       margin: 0;
-      font-size: 18px;
+      font-size: 13px;
     }
   }
 }

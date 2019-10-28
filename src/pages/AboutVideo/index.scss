@@ -10,19 +10,20 @@
     box-sizing: border-box;
     vertical-align: top;
     padding-top: 105px;
+    padding-left: 30px;
 
     &:last-child {
-      width: 65%;
+      width: 60%;
     }
 
     header {
       h1 {
         font-family: 'TT Hoves Bold';
         color: $color-focus;
-        font-size: 60px;
+        font-size: 45px;
         margin-bottom: 21px;
         text-transform: uppercase;
-        line-height: 60px;
+        line-height: 45px;
         margin: 0;
         padding-bottom: 15px;
       }
@@ -32,7 +33,7 @@
       p {
         padding: 0;
         margin: 0;
-        font-size: 19px;
+        font-size: 15px;
         line-height: 23px;
         width: 95%;
         max-width: 370px;

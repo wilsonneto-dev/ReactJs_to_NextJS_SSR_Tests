@@ -30,8 +30,10 @@ class Subscription extends Component {
             </h1>
 
             <p>
-              No <b>Petra Belas Artes À LA CARTE</b>, você tem <b>2</b> opções
-              complementares para assistir aos seus filmes favoritos.
+              No <strong>Petra Belas Artes À LA CARTE</strong>,<br />
+              você tem <strong>2</strong> opções complementares
+              <br />
+              para assistir aos seus filmes favoritos.
             </p>
           </div>
 
@@ -44,10 +46,13 @@ class Subscription extends Component {
                   <span className="small">nove reais e noventa centavos</span>
                 </div>
                 <p>
-                  Plano mensal com acesso a até 90% dos filmes do canal em 2
-                  dispositivos simultaneamente.
+                  Plano mensal com acesso a todos os filmes do catálogo (com
+                  exceção dos lançamentos especiais), em 2 dispositivos
+                  simultâneamente.
                 </p>
-                <a href="/">Clique aqui</a>
+                <a href="https://www.looke.com.br/Account/Login?ReturnUrl=%2fsubscription%2fbelasartes">
+                  Clique aqui
+                </a>
               </div>
               <div className="box">
                 <h1>Locação</h1>
@@ -56,10 +61,8 @@ class Subscription extends Component {
                   <span>R$ 4,90</span>
                   <span className="small">quatro reais e noventa centavos</span>
                 </div>
-                <p className="big">
-                  especiais e lançamentos com preços variados
-                </p>
-                <p>
+                <p className="big">Lançamentos especiais com preços variados</p>
+                <p className="margin-bottom-subscription">
                   Locação por filme unitário para assistir em um período de 48
                   horas após a compra.
                 </p>

@@ -14,10 +14,14 @@
 
     h1 {
       font-family: 'TT Hoves Bold';
+      font-weight: 300;
       color: $color-focus;
-      font-size: 60px;
-      line-height: 53px;
+      font-size: 46px;
+      line-height: 46px;
       margin-bottom: 30px;
+      padding-top: 90px;
+      padding-left: 30px;
+      text-transform: uppercase;
 
       span {
         font-family: 'TT Hoves';

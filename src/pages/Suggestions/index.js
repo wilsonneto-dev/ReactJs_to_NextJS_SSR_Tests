@@ -54,8 +54,9 @@ class Suggestions extends Component {
         <section className="header">
           <h1>Sugestões {this.props.loading && '...'}</h1>
           <p>
-            Nossa equipe escolheu a dedo filmes incríveis do nosso catálogo para
-            você assistir!
+            Nossa equipe escolheu a dedo
+            <br /> filmes incríveis do nosso catálogo
+            <br /> para você assistir!
           </p>
         </section>
 

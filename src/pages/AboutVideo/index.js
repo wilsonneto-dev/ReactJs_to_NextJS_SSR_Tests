@@ -27,20 +27,21 @@ class AboutVideo extends Component {
         <div className="about-movie-wrapper inner">
           <div className="side">
             <header>
-              <h1>
-                À La
-                <br />
-                Carte
-              </h1>
+              <h1>À La Carte</h1>
             </header>
             <div className="text-blocks">
               <p>
-                Uma nova maneira de ver filmes em casa: com programação
-                especial, como a do Cine Belas Artes.
+                Uma nova maneira de ver filmes em casa: <br />
+                com programação especial, como a do
+                <br />
+                Cine Belas Artes.
               </p>
               <p>
-                Aqui você encontra um acervo com curadoria, pensado para você,
-                que ama uma programação de qualidade.
+                Aqui você encontra um acervo com <strong>curadoria</strong>,
+                <br />
+                pensado para você, que ama uma
+                <br />
+                programação de qualidade.
               </p>
             </div>
           </div>

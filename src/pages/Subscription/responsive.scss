@@ -41,6 +41,11 @@
 }
 
 @media (max-width: $breakpoint-mobile) {
+  .wrapper > div:last-child .flex {
+    flex-direction: column;
+    width: 290px;
+    margin: 0 auto;
+  }
   .wrapper {
     & > div:first-child {
       vertical-align: top;

@@ -10,6 +10,7 @@ import AboutVideo from '../pages/AboutVideo';
 import Channel from '../pages/Channel';
 import ChannelList from '../pages/ChannelList';
 import MovieDetails from '../pages/MovieDetails';
+import Comming from '../pages/Comming';
 
 class SwitchRoutes extends Component {
   previousLocation = this.props.location;
@@ -46,8 +47,8 @@ class SwitchRoutes extends Component {
           <Route path="/assinatura" component={Subscription} />
           <Route path="/sobre" component={AboutVideo} />
           <Route path="/sobre-texto" component={AboutText} />
-          <Route path="/cardapio-semanal" component={Channel} />
-          <Route path="/cardapio-lista" component={ChannelList} />
+          <Route path="/cardapio-semanal" component={Comming} />
+          <Route path="/cardapio-lista" component={Comming} />
         </Switch>
         <Route path="/detalhes/:id/:slug" component={MovieDetails} />
       </div>
