@@ -7,6 +7,7 @@ import Shared from '../../configs/Shared';
 /** Components */
 import Billboard from '../../components/Billboard';
 import MoviesList from '../../components/MoviesList';
+import MoviesListLoading from '../../components/MoviesListLoading';
 import HomeLoading from './components/HomeLoading';
 
 /** redux */
@@ -105,7 +106,11 @@ class Home extends Component {
           <Billboard list={banners} requestLoading={bannersLoading} />
 
           {loading ? (
-            <></>
+            <>
+              <MoviesListLoading />
+              <MoviesListLoading />
+              <MoviesListLoading />
+            </>
           ) : (
             <>
               {sections.map((item, index) => (

@@ -8,7 +8,7 @@ const sliderSettings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   lazyLoad: true,
-  initialSlide: 2,
+  initialSlide: 0,
   nextArrow: <SliderNextArrow />,
   prevArrow: <SliderPrevArrow />,
   responsive: [
@@ -25,8 +25,7 @@ const sliderSettings = {
       breakpoint: 600,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 2,
-        initialSlide: 2
+        slidesToScroll: 2
       }
     },
     {
@@ -37,6 +36,6 @@ const sliderSettings = {
       }
     }
   ]
-}
+};
 
 export default sliderSettings;

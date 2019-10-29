@@ -12,4 +12,20 @@
       font-size: 30px;
     }
   }
+  .suggestions {
+    padding-left: 0px;
+
+    .item {
+      text-align: center;
+
+      & * {
+        text-align: left;
+      }
+      .avatar-wrapper {
+        width: 100%;
+        height: 50px;
+        width: 175px;
+      }
+    }
+  }
 }

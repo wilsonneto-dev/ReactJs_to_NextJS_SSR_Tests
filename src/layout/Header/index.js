@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import clsx from 'clsx';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -15,6 +15,7 @@ class Header extends Component {
     super(props);
 
     this.state = { activeLink: 'home' };
+    this.checkbox = createRef();
   }
 
   render() {
@@ -23,7 +24,7 @@ class Header extends Component {
     return (
       <>
         <header className="main-header box-sized">
-          <input id="mobile-navbar-check" type="checkbox" />
+          <input ref={this.checkbox} id="mobile-navbar-check" type="checkbox" />
 
           <div className="mobile-menu">
             <label htmlFor="mobile-navbar-check">
@@ -38,7 +39,11 @@ class Header extends Component {
             <img src={imageLogo} alt="Petra Belas Artes" />
           </div>
           <nav>
-            <ul>
+            <ul
+              onClick={() => {
+                this.checkbox.current.checked = false;
+              }}
+            >
               <li className={clsx(pathname === '/' && 'active')}>
                 <Link to="/">Início</Link>
                 <span className="bullet"></span>

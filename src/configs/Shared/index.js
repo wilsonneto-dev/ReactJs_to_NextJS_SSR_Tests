@@ -7,11 +7,11 @@ const Shared = {
   // sectionLocationId: 8001,
   // AuthenticationTicket: 'univer@univer:e4rt5@#r$',
 
-  // BannerAuthenticationTicket: 'looke@looke:v7c8ad@#$',
-  // BannerLocationId: 907
-
   BannerAuthenticationTicket: 'looke@looke:v7c8ad@#$',
-  BannerLocationId: 52 //907
+  BannerLocationId: 907
+
+  // BannerAuthenticationTicket: 'looke@looke:v7c8ad@#$',
+  // BannerLocationId: 52 //907
 };
 
 export default Shared;

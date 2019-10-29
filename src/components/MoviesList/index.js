@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import sliderSettings from './slick-slider-config';
 
-import MoviesListLoading from '../MoviesListLoading';
+import MoviesListLoadingItems from '../MoviesListLoading/Items';
 
 import LazyImage from '../LazyImage';
 
@@ -113,27 +113,13 @@ class MoviesList extends Component {
                 ))}
               </Slider>
             ) : (
-              <></>
+              <MoviesListLoadingItems />
             )}
           </SkeletonTheme>
         </section>
-
-        <MoviesListLoading numItensOnSlider={4} />
       </>
     );
   }
 }
 
 export default MoviesList;
-
-/*
-<div className="movies-slider loading-skeleton loading">
-  {arrItemsSkeleton.map((item, index) => (
-    <div key={index} className="item loading">
-      <div className="image-wrapper">
-        <Skeleton height={200} width={300} />
-      </div>
-    </div>
-  ))}
-</div>
-*/

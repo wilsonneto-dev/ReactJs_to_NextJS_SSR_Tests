@@ -77,6 +77,19 @@
   }
 }
 
+.suggestions {
+  .item.loading {
+    text-align: left;
+    display: inline-block;
+    width: 250px;
+    margin-bottom: 20px;
+    text-align: center;
+
+    .avatar-wrapper {
+    }
+  }
+}
+
 .suggestions .item .avatar-wrapper img {
   border-radius: 50%;
 }

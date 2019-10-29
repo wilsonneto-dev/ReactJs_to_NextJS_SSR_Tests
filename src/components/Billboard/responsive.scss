@@ -37,4 +37,12 @@
   .billboard .click-area {
     height: 250px;
   }
+
+  .billboard-dots {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    height: 0px;
+    transform: translateY(-10px);
+  }
 }

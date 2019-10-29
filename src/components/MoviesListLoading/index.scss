@@ -6,31 +6,65 @@
 }
 
 .movies-slider.loading {
+  .item {
+    margin: 0 auto !important;
+  }
+
   .img-loading {
     width: 300px;
     height: 200px;
-    background-color: red;
   }
 }
 
-@media (max-width: 1024) {
+@media (max-width: 1524px) {
+  .movies-list.loading.inner {
+    .img-loading {
+      width: calc(175px * 1.5);
+      height: 175px;
+    }
+  }
+}
+
+@media (max-width: 1290px) {
+  .movies-list.loading.inner {
+    .img-loading {
+      width: calc(145px * 1.5);
+      height: 145px;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .movies-slider.loading {
+    .item:nth-child(4) {
+      display: none !important;
+    }
+  }
+}
+
+@media (max-width: 840px) {
+  .movies-list.loading.inner {
+    .img-loading {
+      width: calc(105px * 1.5);
+      height: 105px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
   .movies-slider.loading {
     .item:nth-child(3) {
-      display: none;
+      display: none !important;
+      border: 5px solid yellow;
     }
   }
 }
-@media (max-width: 600) {
+
+@media (max-width: 520px) {
   .movies-slider.loading {
     .item:nth-child(2) {
-      display: none;
-    }
-  }
-}
-@media (max-width: 480) {
-  .movies-slider.loading {
-    .item:nth-child(1) {
-      display: none;
+      display: none !important;
+      border: 5px solid yellow;
     }
   }
 }
