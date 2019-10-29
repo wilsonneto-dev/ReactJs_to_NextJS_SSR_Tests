@@ -112,7 +112,7 @@
 
       h1 {
         margin: 38px 0px;
-        font-size: 65px;
+        font-size: 58px;
         text-transform: uppercase;
         line-height: 60px;
       }
@@ -155,12 +155,17 @@
         cursor: pointer;
 
         .play {
-          background-color: rgba(255, 255, 255, 0.2);
+          background-color: rgba(255, 255, 255, 0.85);
         }
 
         & > span {
           margin-left: 10px;
           border-bottom: 2px solid $color-focus;
+          font-family: 'TT Hoves Bold';
+          font-weight: 200;
+          color: white;
+          font-size: 15px;
+          letter-spacing: 0px;
         }
       }
     }

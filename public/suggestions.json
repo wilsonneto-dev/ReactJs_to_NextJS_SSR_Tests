@@ -1,0 +1,39 @@
+[{
+    "id": 1,
+    "imageUrl": "https://wilsonneto-dev-s3-01.s3.us-east-2.amazonaws.com/juliana-brito.jpg",
+    "name": "Juliana Brito",
+    "movieTitle": "",
+    "description": "",
+    "links" : [
+        { "title": "A lição", "url": "#" },
+        { "title": "Pecados antigos, longas sombras", "url": "#" },
+        { "title": "Samba Riachão", "url": "#" },
+        { "title": "Carandiru", "url": "#" }
+    ]
+},
+{
+    "id" : 2,
+    "imageUrl": "https://wilsonneto-dev-s3-01.s3.us-east-2.amazonaws.com/roberta-ribas.jpg",
+    "name": "Roberta Ribas",
+    "movieTitle": "",
+    "description": "",
+    "links" : [
+        { "title": "Perdidos em Paris", "url": "#" },
+        { "title": "O casamento de Muriel", "url": "#" },
+        { "title": "O gosto dos outros", "url": "#" },
+        { "title": "Histórias extraordinárias", "url": "#" }
+    ]
+},
+{
+    "id": 3,
+    "imageUrl": "https://wilsonneto-dev-s3-01.s3.us-east-2.amazonaws.com/leo-mendes.jpg",
+    "name": "Léo Mendes",
+    "movieTitle": "",
+    "description": "",
+    "links" : [
+        { "title": "Longe do Paraíso", "url": "#" },
+        { "title": "Boas Intenções", "url": "#" },
+        { "title": "Winter Sleep", "url": "#" },
+        { "title": "Pintar ou Fazer Amor", "url": "#" }
+    ]
+}]

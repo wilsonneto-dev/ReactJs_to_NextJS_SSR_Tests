@@ -11,7 +11,29 @@ class MoviesListLoading extends Component {
       arrLoadingItems.push(index);
 
     return (
-      <>
+      <section className="movies-list loading inner">
+        <header>
+          <Skeleton width={250} />
+        </header>
+        <div className="movies-slider loading">
+          {arrLoadingItems.map((item, index) => (
+            <div key={index} className="item">
+              <center>
+                <div className="image-wrapper">
+                  <div className="img-loading"></div>
+                </div>
+              </center>
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+}
+
+export default MoviesListLoading;
+
+/*
         <SkeletonTheme
           className="skeleton"
           color="#ff7748"
@@ -32,9 +54,4 @@ class MoviesListLoading extends Component {
             </div>
           </section>
         </SkeletonTheme>
-      </>
-    );
-  }
-}
-
-export default MoviesListLoading;
+*/

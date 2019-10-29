@@ -5,6 +5,10 @@
   padding-top: 15px;
   padding-bottom: 55px;
 
+  * {
+    outline: none;
+  }
+
   &:last-child {
     padding-bottom: 0px;
   }
@@ -45,6 +49,7 @@
         max-width: 300px;
         max-height: 200px;
         min-height: 150px;
+        display: inline-block;
       }
       img {
         max-width: 100%;

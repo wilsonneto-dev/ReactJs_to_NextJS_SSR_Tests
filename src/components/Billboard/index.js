@@ -1,9 +1,6 @@
 import React, { Component, createRef } from 'react';
 import clsx from 'clsx';
 
-import imageTeste from '../../images/bg-test-01.jpg';
-import imageTeste2 from '../../images/banner-guide.jpg';
-
 import './index.scss';
 
 class Billboard extends Component {
@@ -19,6 +16,7 @@ class Billboard extends Component {
 
     this.elementBanner = createRef();
     this.elementLink = createRef();
+    this.elementBullets = createRef();
   }
 
   componentDidMount() {
@@ -33,9 +31,7 @@ class Billboard extends Component {
       if (list.length > 0) {
         const [firstBanner] = list;
         this.preLoadImage(firstBanner.image, success => {
-          this.elementBanner.current.style.backgroundImage = `url(${
-            /*firstBanner.image*/ imageTeste
-          })`;
+          this.elementBanner.current.style.backgroundImage = `url(${firstBanner.image})`;
           this.setState({ imagesLoading: false }, () => {
             this.setState({ hasLink: firstBanner.link != '' });
             this.elementLink.current.href = firstBanner.link;
@@ -76,13 +72,17 @@ class Billboard extends Component {
   }
 
   changeBannerIndex(index) {
+    this.setState({ currentIndex: index });
     const banner = this.props.list[index];
+
     const hasLink = banner.link != '';
     this.setState({ hasLink });
 
     if (hasLink) {
       this.elementLink.current.href = banner.link;
     }
+
+    this.elementBanner.current.style.backgroundImage = `url(${banner.image})`;
   }
 
   initTimer() {
@@ -95,7 +95,6 @@ class Billboard extends Component {
 
       if (nextIndex > maxIndex) nextIndex = 0;
 
-      this.setState({ currentIndex: nextIndex });
       this.changeBannerIndex(nextIndex);
     }, 3000);
 
@@ -114,6 +113,7 @@ class Billboard extends Component {
 
     const opacity = hiddenBanner ? 0 : 1;
     this.elementBanner.current.style.opacity = opacity;
+    this.elementBullets.current.style.opacity = opacity;
   };
 
   render() {
@@ -129,6 +129,20 @@ class Billboard extends Component {
             )}
           </div>
         </aside>
+        <div ref={this.elementBullets} className="billboard-dots">
+          {list.map((banner, index) => (
+            <div
+              key={banner.id}
+              onClick={() => {
+                this.changeBannerIndex(index);
+              }}
+              className={clsx(
+                'billboard-dot',
+                index == currentIndex && 'current'
+              )}
+            ></div>
+          ))}
+        </div>
         <div
           ref={this.elementBanner}
           className={clsx('billboard-background', !imagesLoading && 'loaded')}

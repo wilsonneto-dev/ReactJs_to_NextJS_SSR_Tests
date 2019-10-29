@@ -52,7 +52,7 @@ export const servicesAPIs = {
     }
   },
 
-  suggestions: 'https://demo1589835.mockable.io/suggestions',
+  suggestions: '/suggestions.json',
 
   channelVideos:
     'https://www.googleapis.com/youtube/v3/search?key=AIzaSyDokzfhBGfUkE_ezOsRlZdR0nOVuWRYYhc&channelId=UCl8MCsaxzWnm_D4izigpTeg&part=snippet,id&order=date&maxResults=3',

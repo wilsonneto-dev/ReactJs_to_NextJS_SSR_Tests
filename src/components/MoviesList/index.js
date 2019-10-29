@@ -9,6 +9,8 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import sliderSettings from './slick-slider-config';
 
+import MoviesListLoading from '../MoviesListLoading';
+
 import LazyImage from '../LazyImage';
 
 import api, { servicesAPIs } from '../../services/api';
@@ -55,7 +57,7 @@ class MoviesList extends Component {
     const movies = response.data.FindMediaResult.Movies.map(item => ({
       id: item.Id,
       title: item.FullTitle,
-      image: item.Images.find(image => image.TypeId == 5001),
+      image: item.Images.find(image => image.TypeId == -2 /* 5001 */),
       imdbId: item.ImdbId,
       url: item.Metadata.UniqueUrl,
       price: item.RentPrice
@@ -93,37 +95,45 @@ class MoviesList extends Component {
               >
                 {movies.map((item, index) => (
                   <div key={index} className="item">
-                    <Link
-                      to={{
-                        pathname: `/detalhes/${item.id}/${item.url}`,
-                        state: {
-                          modal: true
-                        }
-                      }}
-                    >
-                      <div className="image-wrapper">
-                        <LazyImage src={item.image.Url} alt={item.title} />
-                      </div>
-                    </Link>
+                    <center>
+                      <Link
+                        to={{
+                          pathname: `/detalhes/${item.id}/${item.url}`,
+                          state: {
+                            modal: true
+                          }
+                        }}
+                      >
+                        <div className="image-wrapper">
+                          <LazyImage src={item.image.Url} alt={item.title} />
+                        </div>
+                      </Link>
+                    </center>
                   </div>
                 ))}
               </Slider>
             ) : (
-              <div className="movies-slider loading-skeleton loading">
-                {arrItemsSkeleton.map((item, index) => (
-                  <div key={index} className="item loading">
-                    <div className="image-wrapper">
-                      <Skeleton height={200} width={300} />
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <></>
             )}
           </SkeletonTheme>
         </section>
+
+        <MoviesListLoading numItensOnSlider={4} />
       </>
     );
   }
 }
 
 export default MoviesList;
+
+/*
+<div className="movies-slider loading-skeleton loading">
+  {arrItemsSkeleton.map((item, index) => (
+    <div key={index} className="item loading">
+      <div className="image-wrapper">
+        <Skeleton height={200} width={300} />
+      </div>
+    </div>
+  ))}
+</div>
+*/

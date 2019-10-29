@@ -105,7 +105,7 @@ class Home extends Component {
           <Billboard list={banners} requestLoading={bannersLoading} />
 
           {loading ? (
-            <HomeLoading numItensOnSlider={numItensOnSlider} />
+            <></>
           ) : (
             <>
               {sections.map((item, index) => (
@@ -122,6 +122,10 @@ class Home extends Component {
     );
   }
 }
+
+/*
+  <HomeLoading numItensOnSlider={numItensOnSlider} />
+*/
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(LoadingActions, dispatch);

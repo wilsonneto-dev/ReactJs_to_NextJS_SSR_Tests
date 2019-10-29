@@ -37,4 +37,27 @@
   }
 }
 
+.billboard-dots {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  height: 0px;
+  transform: translateY(17px);
+
+  .billboard-dot {
+    height: 10px;
+    width: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 3px;
+    opacity: 0.3;
+    cursor: pointer;
+
+    &.current {
+      opacity: 1;
+    }
+  }
+}
+
 @import './responsive.scss';
