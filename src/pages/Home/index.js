@@ -93,7 +93,7 @@ class Home extends Component {
 
     banners.unshift({
       id: 0,
-      link: '#',
+      link: '/assinatura',
       image: BannerFixo
     });
 

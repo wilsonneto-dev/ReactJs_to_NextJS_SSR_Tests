@@ -8,6 +8,7 @@ const sliderSettings = {
   slidesToShow: 4,
   slidesToScroll: 1,
   lazyLoad: true,
+  centerMode: false,
   initialSlide: 0,
   nextArrow: <SliderNextArrow />,
   prevArrow: <SliderPrevArrow />,
