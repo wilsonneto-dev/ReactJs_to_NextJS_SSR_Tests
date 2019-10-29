@@ -25,6 +25,7 @@ class Billboard extends Component {
 
   componentDidUpdate() {
     const { list, requestLoading } = this.props;
+
     const { imagesLoading } = this.state;
 
     if (!requestLoading && imagesLoading) {

@@ -57,7 +57,7 @@ class MoviesList extends Component {
     const movies = response.data.FindMediaResult.Movies.map(item => ({
       id: item.Id,
       title: item.FullTitle,
-      image: item.Images.find(image => image.TypeId == -2 /* 5001 */),
+      image: item.Images.find(image => image.TypeId == 1010),
       imdbId: item.ImdbId,
       url: item.Metadata.UniqueUrl,
       price: item.RentPrice

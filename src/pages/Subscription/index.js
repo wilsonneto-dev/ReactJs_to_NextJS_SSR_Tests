@@ -53,6 +53,9 @@ class Subscription extends Component {
                 <a href="https://www.looke.com.br/Account/Login?ReturnUrl=%2fsubscription%2fbelasartes">
                   Clique aqui
                 </a>
+                <p className="small">
+                  o cadastro e o pagamento serão feitos no ambiente do Looke.
+                </p>
               </div>
               <div className="box">
                 <h1>Locação</h1>

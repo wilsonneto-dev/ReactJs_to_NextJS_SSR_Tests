@@ -113,7 +113,7 @@ class MovieDetails extends Component {
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
-                          href={`https://www.looke.com.br/filmes/${movie.url}`}
+                          href={`https://www.looke.com.br/History/Play?d=0&m=${movie.id}`}
                         >
                           <div className="play-wrapper btn-wrapper">
                             <div className="play">

@@ -10,6 +10,8 @@ import MoviesList from '../../components/MoviesList';
 import MoviesListLoading from '../../components/MoviesListLoading';
 import HomeLoading from './components/HomeLoading';
 
+import BannerFixo from '../../images/0-BannerAssinarura.jpg';
+
 /** redux */
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -88,6 +90,13 @@ class Home extends Component {
       image: item.ImageURL,
       link: item.UniqueName
     }));
+
+    banners.unshift({
+      id: 0,
+      link: '#',
+      image: BannerFixo
+    });
+
     this.setState({ banners, bannersLoading: false });
   }
 

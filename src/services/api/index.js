@@ -43,7 +43,7 @@ export const servicesAPIs = {
       BoxBehavior: 2,
       FillSiblings: false,
       FillSiblingsChilds: false,
-      ImageTypeIds: [-2, 4001, 1012, 5001],
+      ImageTypeIds: [-2, 4001, 1012, 1010],
       IncludePreOrderItens: false,
       OnlySVODItens: false,
       PageNumber: 0,
