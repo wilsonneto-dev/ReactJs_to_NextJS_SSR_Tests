@@ -53,6 +53,7 @@ class MovieDetails extends Component {
       actors: item.Metadata.Actors.map(actor => actor.Name).join(', '),
       country: item.Metadata.Country,
       text: item.Metadata.Synopsis,
+      curiosities: item.Metadata.Description,
       direction: item.Metadata.Directors.map(actor => actor.Name).join(', '),
       genre: item.Metadata.Genres.map(actor => actor.Name).join(', '),
       year: item.Metadata.Year,
@@ -108,6 +109,10 @@ class MovieDetails extends Component {
                       <h1>{movie.title}</h1>
 
                       <p>{movie.text}</p>
+                      <p className="curiosities">
+                        <span className="title">Curiosidades: </span>
+                        {movie.curiosities}
+                      </p>
 
                       <div className="plays">
                         <a
