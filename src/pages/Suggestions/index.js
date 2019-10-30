@@ -103,3 +103,14 @@ export default connect(
   null,
   mapDispatchToProps
 )(Suggestions);
+
+/*
+  <a
+    key={index}
+    href={link.url}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <h4>{link.title}</h4>
+  </a>
+*/
