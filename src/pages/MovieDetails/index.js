@@ -77,9 +77,17 @@ class MovieDetails extends Component {
     });
   }
 
+  historyBack = () => {
+    const { history } = this.props;
+    if (history.length < 4) {
+      history.push('/');
+    } else {
+      history.goBack();
+    }
+  };
+
   render() {
     const modal = true;
-    const { history } = this.props;
     const { loading, movie, trailerView } = this.state;
 
     return (
@@ -87,7 +95,7 @@ class MovieDetails extends Component {
         <div className="content">
           <div ref={this.bgImage} className="bg-image"></div>
           <div className="bg-layer">
-            <div className="btn-close" onClick={history.goBack}>
+            <div className="btn-close" onClick={this.historyBack}>
               x
             </div>
 
@@ -116,8 +124,6 @@ class MovieDetails extends Component {
 
                       <div className="plays">
                         <a
-                          target="_blank"
-                          rel="noopener noreferrer"
                           href={`https://www.looke.com.br/History/Play?d=0&m=${movie.id}&RedirectUrl=/subscription/belasartes`}
                         >
                           <div className="play-wrapper btn-wrapper">

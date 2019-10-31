@@ -1,0 +1,13 @@
+server {
+  listen 80;
+  server_name krim.com;
+  server_name 163.137.36.151;
+  root /root/krim.com;
+  index index.html;
+  
+  access_log /var/log/nginx/krim.com.access.log;
+  error_log /var/log/nginx/krim.com.error.log;
+  location / {
+    try_files $uri /index.html =404;
+  }
+}
