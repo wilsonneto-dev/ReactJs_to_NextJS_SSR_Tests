@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import api, { servicesAPIs } from '../../services/api';
 import LoadingSuggestions from './components/LoadingSuggestions';
 import { SkeletonTheme } from 'react-loading-skeleton';
+import { Link } from 'react-router-dom';
 
 import Shared from '../../configs/Shared';
 
@@ -79,14 +80,9 @@ class Suggestions extends Component {
                     link.url == '' || link.url == '#' ? (
                       <h4>{link.title}</h4>
                     ) : (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <Link to={link.url}>
                         <h4>{link.title}</h4>
-                      </a>
+                      </Link>
                     )
                   )}
                   <p>{item.description}</p>
