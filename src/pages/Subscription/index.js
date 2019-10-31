@@ -50,7 +50,7 @@ class Subscription extends Component {
                   exceção dos lançamentos especiais), em 2 dispositivos
                   simultâneamente.
                 </p>
-                <a href="https://www.looke.com.br/Account/Login?ReturnUrl=%2fsubscription%2fbelasartes">
+                <a href={`${Shared.platformHost}/subscription/belasartes`}>
                   Clique aqui
                 </a>
                 <p className="small">

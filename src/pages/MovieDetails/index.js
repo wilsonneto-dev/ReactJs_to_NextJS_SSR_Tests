@@ -20,7 +20,6 @@ class MovieDetails extends Component {
       loading: true,
       trailerView: false
     };
-
     this.bgImage = createRef();
   }
 
@@ -124,7 +123,7 @@ class MovieDetails extends Component {
 
                       <div className="plays">
                         <a
-                          href={`https://www.looke.com.br/History/Play?d=0&m=${movie.id}&RedirectUrl=/subscription/belasartes`}
+                          href={`${Shared.platformHost}/History/Play?d=0&m=${movie.id}&RedirectUrl=/subscription/belasartes`}
                         >
                           <div className="play-wrapper btn-wrapper">
                             <div className="play">
