@@ -5,8 +5,8 @@
     "movieTitle": "",
     "description": "",
     "links" : [
-        { "title": "A lição", "url": "#" },
-        { "title": "Pecados antigos, longas sombras", "url": "#" },
+        { "title": "A lição", "url": "/detalhes/134366/a-licao" },
+        { "title": "Pecados antigos, longas sombras", "url": "/detalhes/135190/pecados-antigos-longas-sombras" },
         { "title": "Samba Riachão", "url": "#" },
         { "title": "Carandiru", "url": "#" }
     ]
@@ -18,9 +18,9 @@
     "movieTitle": "",
     "description": "",
     "links" : [
-        { "title": "Perdidos em Paris", "url": "#" },
-        { "title": "O casamento de Muriel", "url": "#" },
-        { "title": "O gosto dos outros", "url": "#" },
+        { "title": "Perdidos em Paris", "url": "/detalhes/134367/perdidos-em-paris" },
+        { "title": "O casamento de Muriel", "url": "/detalhes/134402/o-casamento-de-muriel" },
+        { "title": "O gosto dos outros", "url": "/detalhes/134404/o-gosto-dos-outros" },
         { "title": "Histórias extraordinárias", "url": "#" }
     ]
 },
@@ -31,7 +31,7 @@
     "movieTitle": "",
     "description": "",
     "links" : [
-        { "title": "Longe do Paraíso", "url": "#" },
+        { "title": "Longe do Paraíso", "url": "/detalhes/134401/longe-do-paraiso" },
         { "title": "Boas Intenções", "url": "#" },
         { "title": "Winter Sleep", "url": "#" },
         { "title": "Pintar ou Fazer Amor", "url": "#" }

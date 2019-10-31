@@ -49,7 +49,8 @@ class AboutVideo extends Component {
             <div className="video-wrapper">
               <video
                 controls
-                src="https://ottvsimg.blob.core.windows.net/res/video/entenda_o_looke.mp4"
+                autoPlay={true}
+                src="http://belasartesalacarte.com.br/video/video.mp4"
               ></video>
             </div>
           </div>
