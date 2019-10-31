@@ -75,16 +75,20 @@ class Suggestions extends Component {
                     <LazyImage src={item.imageUrl} alt={item.name} />
                   </div>
                   <h3>{item.name}</h3>
-                  {item.links.map((link, index) => (
-                    <a
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                  {item.links.map((link, index) =>
+                    link.url == '' || link.url == '#' ? (
                       <h4>{link.title}</h4>
-                    </a>
-                  ))}
+                    ) : (
+                      <a
+                        key={index}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <h4>{link.title}</h4>
+                      </a>
+                    )
+                  )}
                   <p>{item.description}</p>
                 </div>
               ))

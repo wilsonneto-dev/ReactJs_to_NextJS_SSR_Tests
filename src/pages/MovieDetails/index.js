@@ -118,7 +118,7 @@ class MovieDetails extends Component {
                         <a
                           target="_blank"
                           rel="noopener noreferrer"
-                          href={`https://www.looke.com.br/History/Play?d=0&m=${movie.id}`}
+                          href={`https://ottvssitelooke-ottvssitelooke-2.azurewebsites.net/History/Play?d=0&m=${movie.id}&RedirectUrl=/subscription/belasartes`}
                         >
                           <div className="play-wrapper btn-wrapper">
                             <div className="play">
