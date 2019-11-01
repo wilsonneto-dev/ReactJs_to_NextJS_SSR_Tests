@@ -28,6 +28,7 @@ class MoviesList extends Component {
 
     this.componentDidMount = this.componentDidMount.bind(this);
     this.getData = this.getData.bind(this);
+    this.historyGo = this.historyGo.bind(this);
   }
 
   componentDidMount() {
@@ -64,6 +65,11 @@ class MoviesList extends Component {
     }));
 
     this.setState({ loading: false, movies });
+  }
+
+  historyGo(url) {
+    const { history } = this.props;
+    history.push(url);
   }
 
   render() {
@@ -105,7 +111,16 @@ class MoviesList extends Component {
                         }}
                       >
                         <div className="image-wrapper">
-                          <LazyImage src={item.image.Url} alt={item.title} />
+                          <LazyImage
+                            onClick={e => {
+                              e.preventDefault();
+                              this.historyGo(
+                                `/detalhes/${item.id}/${item.url}`
+                              );
+                            }}
+                            src={item.image.Url}
+                            alt={item.title}
+                          />
                         </div>
                       </Link>
                     </center>

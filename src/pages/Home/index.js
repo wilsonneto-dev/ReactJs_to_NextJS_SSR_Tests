@@ -109,6 +109,8 @@ class Home extends Component {
       numItensOnSlider
     } = this.state;
 
+    const { history } = this.props;
+
     return (
       <>
         <div className="home-wrapper">
@@ -124,6 +126,7 @@ class Home extends Component {
             <>
               {sections.map((item, index) => (
                 <MoviesList
+                  history={history}
                   numItensSekeleton={numItensOnSlider}
                   key={index}
                   section={item}
