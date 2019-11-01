@@ -123,7 +123,7 @@ class MovieDetails extends Component {
 
                       <div className="plays">
                         <a
-                          href={`${Shared.platformHost}/History/Play?d=0&m=${movie.id}&RedirectUrl=/subscription/belasartes`}
+                          href={`${Shared.platformHost}/History/Play?d=0&m=${movie.id}&RedirectUrl=/subscription/belasartes&skip_bloq=1`}
                         >
                           <div className="play-wrapper btn-wrapper">
                             <div className="play">
