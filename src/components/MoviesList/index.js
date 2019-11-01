@@ -111,16 +111,7 @@ class MoviesList extends Component {
                         }}
                       >
                         <div className="image-wrapper">
-                          <LazyImage
-                            onClick={e => {
-                              e.preventDefault();
-                              this.historyGo(
-                                `/detalhes/${item.id}/${item.url}`
-                              );
-                            }}
-                            src={item.image.Url}
-                            alt={item.title}
-                          />
+                          <LazyImage src={item.image.Url} alt={item.title} />
                         </div>
                       </Link>
                     </center>
