@@ -17,7 +17,7 @@ class Items extends Component {
                       '1.2s ease-in-out 0s infinite normal none running animation-16jpnkj',
                     width: '250px'
                   }}
-                  className="img-loading css-19bon8n"
+                  className="img-loading css-19bon8n css-loading-movie-items"
                 ></div>
               </div>
             </center>

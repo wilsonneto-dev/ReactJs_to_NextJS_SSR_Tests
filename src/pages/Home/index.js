@@ -114,7 +114,7 @@ class Home extends Component {
         <div className="home-wrapper">
           <Billboard list={banners} requestLoading={bannersLoading} />
 
-          {loading ? (
+          {loading || 1 ? (
             <>
               <MoviesListLoading />
               <MoviesListLoading />
