@@ -15,9 +15,10 @@ class Items extends Component {
                   style={{
                     animation:
                       '1.2s ease-in-out 0s infinite normal none running animation-16jpnkj',
-                    width: '250px'
+                    width: '250px',
+                    borderRadius: '4px'
                   }}
-                  className="img-loading css-19bon8n css-loading-movie-items"
+                  className="img-loading css-loading-movie-items"
                 ></div>
               </div>
             </center>
