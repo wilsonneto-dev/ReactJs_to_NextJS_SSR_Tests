@@ -1,49 +1,49 @@
 import React, { Component, createRef } from 'react';
-
+import clsx from 'clsx';
 import { withRouter } from 'react-router-dom';
 
-import './index.scss';
-
 import iconSearch from '../../images/ic-search.png';
+
+import './index.scss';
 
 class Search extends Component {
   constructor(props) {
     super(props);
-    this.state = { textSearch: '' };
-    this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.state = { open: true };
+    this.refInput = createRef();
   }
 
-  handleSubmit(e) {
-    const { history } = this.props;
-    const { textSearch } = this.state;
-    e.preventDefault();
+  handleSearch() {
+    const history = this.props.history;
 
-    const nextPage = `/search/${encodeURIComponent(textSearch)}`;
-    history.push(nextPage);
+    const textToSearch = encodeURI(this.refInput.current.value);
+    const url = `/search/${textToSearch}`;
+    history.push(url);
   }
 
   render() {
-    const { textSearch } = this.state;
-
-    return <></>;
-    /*
     return (
-      <>
-        <form onSubmit={this.handleSubmit} className="search-form">
-          <input
-            onChange={e => {
-              this.setState({ textSearch: e.target.value });
-            }}
-            value={textSearch}
-            type="text"
-            placeholder="Filme, diretor, ator..."
-            required
-          />
-          <input className="img" type="image" src={iconSearch} />
-        </form>
-      </>
+      <span className={clsx('header-search', this.state.open && 'closed')}>
+        <input
+          className="input"
+          placeholder="Pesquisa..."
+          type="text"
+          ref={this.refInput}
+          onKeyDown={e => {
+            if (e.key === 'Enter' && this.refInput.current.value.length > 0)
+              this.handleSearch();
+          }}
+        />
+        <img
+          className="icon"
+          src={iconSearch}
+          onClick={() => {
+            this.setState({ open: !this.state.open });
+          }}
+        />
+      </span>
     );
-    */
   }
 }
 

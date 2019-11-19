@@ -11,6 +11,7 @@ import Channel from '../pages/Channel';
 import ChannelList from '../pages/ChannelList';
 import MovieDetails from '../pages/MovieDetails';
 import Comming from '../pages/Comming';
+import Search from '../pages/Search';
 
 class SwitchRoutes extends Component {
   previousLocation = this.props.location;
@@ -49,6 +50,7 @@ class SwitchRoutes extends Component {
           <Route path="/sobre-texto" component={AboutText} />
           <Route path="/cardapio-semanal" component={Comming} />
           <Route path="/cardapio-lista" component={Comming} />
+          <Route path="/search/:search" component={Search} />
         </Switch>
         <Route path="/detalhes/:id/:slug" component={MovieDetails} />
       </div>

@@ -1,31 +1,29 @@
 @import '../../global-styles/vars';
 
-form.search-form {
-  display: inline-block;
+.header-search {
+  transition: all 0.5s;
   background-color: $color-focus;
-  box-sizing: border-box;
-  padding: 5px 10px;
-  font-family: 'TT Hoves';
+  padding: 5px 5px 5px 5px;
 
-  input:first-child {
-    background-color: inherit;
-    font-family: inherit;
-    border: 0;
-    color: $color-text;
-    font-size: 14px;
-    font-weight: lighter;
-    outline: 0;
-    width: 120px;
+  input {
+    transition: all 0.5s;
+    background-color: $color-focus;
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.8);
+    width: 150px;
+    padding: 0px 4px;
+    font-family: 'TT Hoves';
 
     &::placeholder {
-      font-family: inherit;
-      color: rgba(255, 255, 255, 0.7);
-      text-overflow: ellipsis;
+      color: rgba(255, 255, 255, 0.6);
     }
   }
 
-  .img {
-    margin-left: 5px;
-    vertical-align: middle;
+  .icon {
+    transition: all 0.5s;
+    vertical-align: bottom;
+    height: 15px;
+    cursor: pointer;
   }
 }

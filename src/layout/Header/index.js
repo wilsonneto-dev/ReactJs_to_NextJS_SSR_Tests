@@ -71,6 +71,9 @@ class Header extends Component {
                 <Link to="/sugestoes">Sugestões</Link>
                 <span className="bullet"></span>
               </li>
+              <li>
+                <Search />
+              </li>
             </ul>
           </nav>
         </header>
