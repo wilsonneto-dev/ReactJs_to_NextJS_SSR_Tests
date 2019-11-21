@@ -40,8 +40,10 @@ class Header extends Component {
           </div>
           <nav>
             <ul
-              onClick={() => {
-                this.checkbox.current.checked = false;
+              onClick={e => {
+                console.log(e.target);
+                if (e.target.id != 'header-search-field')
+                  this.checkbox.current.checked = false;
               }}
             >
               <li className={clsx(pathname === '/' && 'active')}>
@@ -72,7 +74,11 @@ class Header extends Component {
                 <span className="bullet"></span>
               </li>
               <li>
-                <Search />
+                <Search
+                  onSearch={() => {
+                    this.checkbox.current.checked = false;
+                  }}
+                />
               </li>
             </ul>
           </nav>

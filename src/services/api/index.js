@@ -52,6 +52,43 @@ export const servicesAPIs = {
     }
   },
 
+  searchSectionMoviesFilter: {
+    Groups: [
+      {
+        GroupName: 'Images',
+        GroupProperties: 'TypeId|Url'
+      },
+      {
+        GroupName: 'Price',
+        GroupProperties: 'PurchasePrice|FreePrice|RentPrice|SVODPrice'
+      },
+      {
+        GroupName: 'SerieInfo',
+        GroupProperties: 'EpisodeName'
+      },
+      {
+        GroupName: 'Metadata',
+        GroupProperties: 'UniqueUrl'
+      }
+    ],
+    AuthenticationTicket: 'looke@looke:v7c8ad@#$',
+    Options: {
+      OnlyEnabledItens: true,
+      BoxBehavior: 'Group',
+      OnlySVODItens: false,
+      RecordsPerPage: 100,
+      PageNumber: 0,
+      FillSiblings: false,
+      ImageTypeIds: [-1, 1010],
+      FillSiblingsChilds: false,
+      SortCriteria: 'MediaName',
+      SortOrder: 'ASC'
+    }
+  },
+
+  searchUrlApi:
+    'https://service.ottvs.com.br/XB1Store/browserservice.svc/findmedia',
+
   suggestions: '/suggestions.json',
 
   channelVideos:

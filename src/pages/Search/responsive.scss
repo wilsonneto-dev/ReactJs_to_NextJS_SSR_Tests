@@ -1,0 +1,33 @@
+@import '../../global-styles/vars';
+
+@media (max-width: $breakpoint-mobile) {
+  .search-page-wrapper {
+    padding-top: 10px;
+
+    header {
+      h1 {
+        font-family: 'TT Hoves Bold';
+        color: $color-focus;
+        font-size: 20px;
+        margin-bottom: 21px;
+        text-transform: uppercase;
+        line-height: 45px;
+        margin: 0;
+        padding-bottom: 15px;
+        line-height: 25px;
+        overflow: hidden;
+      }
+    }
+
+    .movies-list {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-items: center;
+
+      .item {
+        margin: 0 auto;
+      }
+    }
+  }
+}

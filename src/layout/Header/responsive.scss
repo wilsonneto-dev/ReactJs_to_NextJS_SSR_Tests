@@ -1,6 +1,19 @@
 @import '../../global-styles/vars';
 
 /* mobile breaks */
+@media (max-width: 1275px) {
+  header.main-header {
+    nav {
+      ul li {
+        margin: 0 5px;
+      }
+      .header-search input {
+        width: 90px;
+      }
+    }
+  }
+}
+
 @media (max-width: $breakpoint-tablet) {
   header.main-header {
     position: absolute;

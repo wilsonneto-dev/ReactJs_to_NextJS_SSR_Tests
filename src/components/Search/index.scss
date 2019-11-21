@@ -4,19 +4,24 @@
   transition: all 0.5s;
   background-color: $color-focus;
   padding: 5px 5px 5px 5px;
+  border-radius: 1px;
 
   input {
     transition: all 0.5s;
     background-color: $color-focus;
     border: none;
     outline: none;
-    color: rgba(255, 255, 255, 0.8);
-    width: 150px;
-    padding: 0px 4px;
+    color: rgba(255, 255, 255, 0.9);
+    width: 130px;
+    padding: 0px 8px;
     font-family: 'TT Hoves';
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-sizing: border-box;
 
     &::placeholder {
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: bold;
     }
   }
 
@@ -25,5 +30,19 @@
     vertical-align: bottom;
     height: 15px;
     cursor: pointer;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .header-search {
+    width: 70%;
+    max-width: 400px;
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  header.main-header nav .header-search input {
+    width: 90% !important;
   }
 }

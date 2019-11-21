@@ -15,21 +15,31 @@ class Search extends Component {
   }
 
   handleSearch() {
+    const { onSearch } = this.props;
     const history = this.props.history;
-
     const textToSearch = encodeURI(this.refInput.current.value);
-    const url = `/search/${textToSearch}`;
-    history.push(url);
+
+    if (textToSearch) {
+      const url = `/search/${textToSearch}`;
+      if (onSearch) onSearch();
+      history.push(url);
+    }
   }
 
   render() {
     return (
-      <span className={clsx('header-search', this.state.open && 'closed')}>
+      <span
+        className={clsx('header-search', this.state.open && 'closed')}
+        onClick={e => {
+          e.preventDefault();
+        }}
+      >
         <input
           className="input"
-          placeholder="Pesquisa..."
+          placeholder="Busca, filmes..."
           type="text"
           ref={this.refInput}
+          id="header-search-field"
           onKeyDown={e => {
             if (e.key === 'Enter' && this.refInput.current.value.length > 0)
               this.handleSearch();
@@ -39,7 +49,7 @@ class Search extends Component {
           className="icon"
           src={iconSearch}
           onClick={() => {
-            this.setState({ open: !this.state.open });
+            this.handleSearch();
           }}
         />
       </span>
