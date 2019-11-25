@@ -11,10 +11,14 @@
       color: $color-focus;
       font-size: 45px;
       margin-bottom: 21px;
-      text-transform: uppercase;
+      text-transform: capitalize;
       line-height: 45px;
       margin: 0;
       padding-bottom: 15px;
+
+      & span.lower {
+        text-transform: lowercase;
+      }
     }
   }
 
