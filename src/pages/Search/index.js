@@ -104,7 +104,7 @@ class Search extends Component {
         <div className="search-page-wrapper inner">
           <header>
             <h1>
-              <span className="lower">Buscando por:</span> {search}
+              B<span className="lower">uscando por:</span> {search}
             </h1>
           </header>
           {loading ? (
