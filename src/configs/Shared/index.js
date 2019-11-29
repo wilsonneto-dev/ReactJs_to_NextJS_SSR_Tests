@@ -7,7 +7,7 @@ const Shared = {
   BannerLocationId: 907,
   BannerAuthenticationTicket: 'looke@looke:v7c8ad@#$',
 
-  platformHost: 'https://looke.com.br'
+  platformHost: 'https://www.looke.com.br'
 };
 
 export default Shared;
