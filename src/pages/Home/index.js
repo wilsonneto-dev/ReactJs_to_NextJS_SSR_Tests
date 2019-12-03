@@ -89,8 +89,8 @@ class Home extends Component {
       id: item.Id,
       image: item.ImageURL,
       link: item.UniqueName.replace(
-        'preview-pba.netlify.com',
-        'http://www.belasartesalacarte.com.br/'
+        'https://preview-pba.netlify.com',
+        'http://www.belasartesalacarte.com.br'
       )
     }));
 
