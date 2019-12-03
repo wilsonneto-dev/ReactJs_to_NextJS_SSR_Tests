@@ -61,7 +61,9 @@ class Search extends Component {
         Name: search,
         OriginalName: search,
         MediaType: 10,
-        DistributorId: 710
+        DistributorId: 710,
+        Actor: search,
+        Director: search
       },
       ...servicesAPIs.searchSectionMoviesFilter
     };
