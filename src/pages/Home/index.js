@@ -88,7 +88,10 @@ class Home extends Component {
     const banners = response.data.ListBannerResult.Banners.map(item => ({
       id: item.Id,
       image: item.ImageURL,
-      link: item.UniqueName
+      link: item.UniqueName.replace(
+        'preview-pba.netlify.com',
+        'http://www.belasartesalacarte.com.br/'
+      )
     }));
 
     banners.unshift({
