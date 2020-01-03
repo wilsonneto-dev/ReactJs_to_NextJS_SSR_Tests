@@ -53,7 +53,7 @@ export const getAppInsights = () => appInsights;
 
 export const insightsTrack = {
   exception: ex => {
-    appInsights.trackException(ex);
+    appInsights.trackException({ exception: ex });
   },
 
   trace: trace => {
