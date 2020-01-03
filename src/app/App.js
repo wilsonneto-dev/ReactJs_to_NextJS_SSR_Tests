@@ -1,25 +1,31 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 /* redux */
-import { Provider } from 'react-redux';
-import store from '../store';
+import { Provider } from "react-redux";
+import store from "../store";
 
-import Loading from '../components/Loading';
+import Loading from "../components/Loading";
 
 /* layouts */
-import Header from '../layout/Header';
-import Socials from '../layout/Socials';
+import Header from "../layout/Header";
+import Socials from "../layout/Socials";
 
 /* routers */
-import SwitchRoutes from '../routes';
+import SwitchRoutes from "../routes";
 
 /* images to preload */
-import imageBackgroundSuggestions from '../images/bg-suggestions.png';
-import imageBackgroundSubscription from '../images/bg-subscription.png';
-import imageBackgroundAbout from '../images/bg-about.png';
+import imageBackgroundSuggestions from "../images/bg-suggestions.png";
+import imageBackgroundSubscription from "../images/bg-subscription.png";
+import imageBackgroundAbout from "../images/bg-about.png";
 
-import preloadImage from '../utils/preloadImage';
+import preloadImage from "../utils/preloadImage";
+
+import TelemetryProvider from "../services/telemetry/TelemetryProvider";
+import { getAppInsights } from "../services/telemetry/telemetryService";
+import { SeverityLevel } from "@microsoft/applicationinsights-web";
+
+import ErrorHandler from "../components/ErrorHandler";
 
 function App() {
   useEffect(() => {
@@ -29,24 +35,43 @@ function App() {
     preloadImage(imageBackgroundAbout, () => {});
   }, []);
 
+  let appInsights = null;
+
   return (
     <div>
-      <Provider store={store}>
-        <Router>
-          <Header />
-          <div id="body-fix-background-layer"></div>
-          <div id="body-fix-background-layer-gradient"></div>
-          <div className="box-sized mobile-margin-top">
-            <Socials />
+      <ErrorHandler
+        onError={({ error, errorInfo }) => {
+          appInsights.trackException({
+            error: new Error(error),
+            errorInfo,
+            severityLevel: SeverityLevel.Error
+          });
+        }}
+      >
+        <Provider store={store}>
+          <Router>
+            <TelemetryProvider
+              instrumentationKey="90361d1a-03f5-4b7b-9c90-6234d7acb1f3"
+              after={() => {
+                appInsights = getAppInsights();
+              }}
+            >
+              <Header />
+              <div id="body-fix-background-layer"></div>
+              <div id="body-fix-background-layer-gradient"></div>
+              <div className="box-sized mobile-margin-top">
+                <Socials />
 
-            <Route component={SwitchRoutes} />
-          </div>
+                <Route component={SwitchRoutes} />
+              </div>
 
-          <div>
-            <Loading />
-          </div>
-        </Router>
-      </Provider>
+              <div>
+                <Loading />
+              </div>
+            </TelemetryProvider>
+          </Router>
+        </Provider>
+      </ErrorHandler>
     </div>
   );
 }

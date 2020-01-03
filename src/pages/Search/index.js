@@ -1,19 +1,22 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import api, { servicesAPIs, defaultConfigAPIs } from '../../services/api';
-import Shared from '../../configs/Shared';
+import api, { servicesAPIs, defaultConfigAPIs } from "../../services/api";
+import Shared from "../../configs/Shared";
 
-import LoadingItems from '../../components/MoviesListLoading/Items';
-import LazyImage from '../../components/LazyImage';
+import LoadingItems from "../../components/MoviesListLoading/Items";
+import LazyImage from "../../components/LazyImage";
 
 /** redux */
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { Creators as LoadingActions } from '../../store/ducks/loading';
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { Creators as LoadingActions } from "../../store/ducks/loading";
+
+import { insightsTrack } from "../../services/telemetry/telemetryService";
 
 /** styles */
-import './index.scss';
+import "./index.scss";
+import { Exception } from "@microsoft/applicationinsights-web";
 
 class Search extends Component {
   constructor(props) {
@@ -22,7 +25,7 @@ class Search extends Component {
     this.state = {
       notFound: false,
       loading: true,
-      search: '',
+      search: "",
       movies: []
     };
   }
@@ -44,7 +47,22 @@ class Search extends Component {
   async getData() {
     const { search } = this.props.match.params;
 
-    if (search == null || search == '') {
+    insightsTrack.event("search", { searchTerm: search });
+
+    if (search == "exception") {
+      throw new Exception("Unexpected error by search");
+    }
+
+    if (search == "exceptionin") {
+      // throw new Exception("Unexpected error by search");
+      insightsTrack.exception(new Exception("Exception without a throw..."));
+    }
+
+    if (search == "trace") {
+      insightsTrack.trace("just a trace in the serach page");
+    }
+
+    if (search == null || search == "") {
       this.setState({
         loading: false,
         movies: [],
