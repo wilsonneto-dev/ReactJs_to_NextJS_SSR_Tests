@@ -41,6 +41,7 @@ function App() {
     <div>
       <ErrorHandler
         onError={({ error, errorInfo }) => {
+          console.log("ErrorHandler:", error);
           appInsights.trackException({
             error: new Error(error),
             errorInfo,

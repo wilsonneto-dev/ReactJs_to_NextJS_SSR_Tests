@@ -45,74 +45,78 @@ class Search extends Component {
   }
 
   async getData() {
-    const { search } = this.props.match.params;
+    try {
+      const { search } = this.props.match.params;
 
-    insightsTrack.event("search", { searchTerm: search });
+      insightsTrack.event("search", { searchTerm: search });
 
-    if (search == "exception") {
-      throw new Exception("Unexpected error by search");
-    }
+      if (search == "exception") {
+        throw "Unexpected error by search";
+      }
 
-    if (search == "exceptionin") {
-      // throw new Exception("Unexpected error by search");
-      insightsTrack.exception(new Exception("Exception without a throw..."));
-    }
+      if (search == "exceptionin") {
+        // throw new Exception("Unexpected error by search");
+        insightsTrack.exception(new Error("Exception without a throw..."));
+      }
 
-    if (search == "trace") {
-      insightsTrack.trace("just a trace in the serach page");
-    }
+      if (search == "trace") {
+        insightsTrack.trace("just a trace in the serach page");
+      }
 
-    if (search == null || search == "") {
+      if (search == null || search == "") {
+        this.setState({
+          loading: false,
+          movies: [],
+          notFound: true
+        });
+
+        return;
+      } else this.setState({ search, loading: true });
+
+      this.props.updateGlobalLoading(true);
+
+      const searchRequestBody = {
+        Criteria: {
+          Name: search,
+          OriginalName: search,
+          MediaType: 10,
+          DistributorId: 710,
+          Actor: search,
+          Director: search
+        },
+        ...servicesAPIs.searchSectionMoviesFilter
+      };
+
+      console.log(searchRequestBody);
+
+      const response = await api.post(
+        servicesAPIs.searchUrlApi,
+        searchRequestBody,
+        servicesAPIs.homeConfig
+      );
+
+      const movies = response.data.FindMediaResult.Movies.map(item => ({
+        id: item.Id,
+        title: item.FullTitle,
+        image: item.Images.find(image => image.TypeId == 1010),
+        imdbId: item.ImdbId,
+        url: item.Metadata.UniqueUrl,
+        price: item.RentPrice
+      }));
+
+      const notFound = movies.length == 0;
+      const loading = false;
+
       this.setState({
-        loading: false,
-        movies: [],
-        notFound: true
+        loading,
+        movies,
+        notFound
       });
 
-      return;
-    } else this.setState({ search, loading: true });
-
-    this.props.updateGlobalLoading(true);
-
-    const searchRequestBody = {
-      Criteria: {
-        Name: search,
-        OriginalName: search,
-        MediaType: 10,
-        DistributorId: 710,
-        Actor: search,
-        Director: search
-      },
-      ...servicesAPIs.searchSectionMoviesFilter
-    };
-
-    console.log(searchRequestBody);
-
-    const response = await api.post(
-      servicesAPIs.searchUrlApi,
-      searchRequestBody,
-      servicesAPIs.homeConfig
-    );
-
-    const movies = response.data.FindMediaResult.Movies.map(item => ({
-      id: item.Id,
-      title: item.FullTitle,
-      image: item.Images.find(image => image.TypeId == 1010),
-      imdbId: item.ImdbId,
-      url: item.Metadata.UniqueUrl,
-      price: item.RentPrice
-    }));
-
-    const notFound = movies.length == 0;
-    const loading = false;
-
-    this.setState({
-      loading,
-      movies,
-      notFound
-    });
-
-    this.props.updateGlobalLoading(false);
+      this.props.updateGlobalLoading(false);
+    } catch (error) {
+      insightsTrack.exception(error);
+    }
   }
 
   render() {

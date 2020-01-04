@@ -1,4 +1,7 @@
-import { ApplicationInsights } from "@microsoft/applicationinsights-web";
+import {
+  ApplicationInsights,
+  Exception
+} from "@microsoft/applicationinsights-web";
 import { ReactPlugin } from "@microsoft/applicationinsights-react-js";
 import { SeverityLevel } from "@microsoft/applicationinsights-web";
 
@@ -53,7 +56,7 @@ export const getAppInsights = () => appInsights;
 
 export const insightsTrack = {
   exception: ex => {
-    appInsights.trackException({ exception: ex });
+    appInsights.trackException({ error: ex });
   },
 
   trace: trace => {
