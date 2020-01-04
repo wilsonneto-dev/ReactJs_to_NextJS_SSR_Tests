@@ -1,16 +1,18 @@
-import React, { Component, createRef } from 'react';
-import { Link } from 'react-router-dom';
-import clsx from 'clsx';
+import React, { Component, createRef } from "react";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
 
-import preloadImage from '../../utils/preloadImage';
+import { Helmet } from "react-helmet";
 
-import api from '../../services/api';
-import apiSettings from './api-settings';
-import Shared from '../../configs/Shared';
+import preloadImage from "../../utils/preloadImage";
 
-import Loading from './components/Loading';
+import api from "../../services/api";
+import apiSettings from "./api-settings";
+import Shared from "../../configs/Shared";
 
-import './index.scss';
+import Loading from "./components/Loading";
+
+import "./index.scss";
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -40,7 +42,7 @@ class MovieDetails extends Component {
         ...apiSettings.filter,
         Criteria: criteria
       },
-      { headers: { 'Content-Type': 'multipart/form-data' } }
+      { headers: { "Content-Type": "multipart/form-data" } }
     );
 
     const movies = response.data.FindMediaResult.Movies.map(item => ({
@@ -49,12 +51,12 @@ class MovieDetails extends Component {
       image: item.Images.find(image => image.TypeId == -2).Url,
       imageLarger: item.Images.find(image => image.TypeId == 4001).Url,
       url: item.Metadata.UniqueUrl,
-      actors: item.Metadata.Actors.map(actor => actor.Name).join(', '),
+      actors: item.Metadata.Actors.map(actor => actor.Name).join(", "),
       country: item.Metadata.Country,
       text: item.Metadata.Synopsis,
       curiosities: item.Metadata.Description,
-      direction: item.Metadata.Directors.map(actor => actor.Name).join(', '),
-      genre: item.Metadata.Genres.map(actor => actor.Name).join(', '),
+      direction: item.Metadata.Directors.map(actor => actor.Name).join(", "),
+      genre: item.Metadata.Genres.map(actor => actor.Name).join(", "),
       year: item.Metadata.Year,
       duration: item.FileInfo.Duration,
       trailer: item.Metadata.TrailerUrl
@@ -79,7 +81,7 @@ class MovieDetails extends Component {
   historyBack = () => {
     const { history } = this.props;
     if (history.length < 4) {
-      history.push('/');
+      history.push("/");
     } else {
       history.goBack();
     }
@@ -103,10 +105,16 @@ class MovieDetails extends Component {
                 <Loading />
               ) : (
                 <>
+                  <Helmet>
+                    <title>{movie.title}</title>
+                    <meta name="description" content={movie.text} />
+                    <meta property="og:image" content={movie.image} />
+                  </Helmet>
+
                   {!trailerView ? (
                     <>
                       <span className="infos">
-                        {movie.country} <strong>{movie.year}</strong>{' '}
+                        {movie.country} <strong>{movie.year}</strong>{" "}
                         {movie.duration}
                         min. &nbsp;
                         <strong>{movie.genre}</strong> &nbsp; Direção
